@@ -15,7 +15,15 @@ public class Estudiante extends PersonaAcademica implements Consultable
         setAnioIngreso(anioIngreso);
         this.materias = new ArrayList<>();
     }        
-    
+    public int getAnioIngreso() {
+    return anioIngreso;
+}
+
+public void setAnioIngreso(int anioIngreso) {
+    if (anioIngreso < 2000)
+        throw new IllegalArgumentException("Anio de ingreso invalido");
+    this.anioIngreso = anioIngreso;
+}
     public String getCarrera()
     {
         return carrera;
@@ -23,9 +31,9 @@ public class Estudiante extends PersonaAcademica implements Consultable
     
     public void setCarrera(String c)
     {
-        if(c==null || c.isEmpty())
+        if(c == null || c.isEmpty())
             throw new IllegalArgumentException("Anio invalido");
-        this.anioIngreso = a;
+        this.carrera=c;
     }
     
     public ArrayList<InscripcionMateria> getMaterias() { return materias; }
