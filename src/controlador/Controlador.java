@@ -7,6 +7,7 @@ package controlador;
 import dao.InscripcionDAO;
 import modelo.Estudiante;
 import modelo.InscripcionMateria;
+import modelo.Materia;
 
 /**
  *
@@ -29,6 +30,25 @@ public class Controlador {
       for (InscripcionMateria i : dao.cargar()){
           estudiante.getMaterias().add(i);
       }
-   }
-   
+    }
+    public void inscribirMateria(
+        String nombre,
+        String codigo,
+        int cuatrimestre,
+        int anio)
+    {
+        Materia materia = new Materia(
+            nombre,
+            codigo,
+            cuatrimestre,
+            anio);
+
+        estudiante.inscribirse(materia);
+
+        dao.guardar(estudiante.getMaterias());
+    }  
+    
+    
 }
+   
+
