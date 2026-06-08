@@ -41,7 +41,23 @@ public class InscripcionDAO
     }
     return lista;
     }
-}
+    
+    public void guardar (ArrayList<InscripcionMateria > lista)
+    {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter (ARCHIVO)))
+        {
+            for (InscripcionMateria insc : lista)
+            {
+                bw.write(insc.toTexto());
+                bw.newLine();
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error al guardar: " + e.getMessage());
+        }
+    }
+} 
 
     
 
