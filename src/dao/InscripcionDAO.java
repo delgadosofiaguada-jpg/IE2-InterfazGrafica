@@ -14,12 +14,34 @@ import java.util.ArrayList;
  */
 public class InscripcionDAO 
 {
-    private static final String ARCHIVO = "inscripciones.text";
+    private static final String ARCHIVO = "inscripciones.txt";
     
     public ArrayList <InscripcionMateria> cargar ()
     {
         ArrayList<InscripcionMateria> lista = new ArrayList<>();
         File f = new File(ARCHIVO);
-        return lista;
+        if (!f.exists()) 
+        {
+           return lista; 
+        }
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+
+        String linea;
+
+        while ((linea = br.readLine()) != null) {
+
+            if (!linea.trim().isEmpty()) {
+                lista.add(InscripcionMateria.fromTexto(linea));
+            }
+        }
+        
+    } catch (IOException e) {
+        System.out.println ("Error al leer :"+ e.getMessage());
+    }
+    return lista;
     }
 }
+
+    
+
