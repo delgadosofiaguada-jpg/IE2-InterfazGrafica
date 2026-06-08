@@ -47,8 +47,12 @@ public class Controlador {
 
         dao.guardar(estudiante.getMaterias());
     }  
-    
-    
+    public void darDeBaja(String codigo)
+    {
+        estudiante.darDeBaja(codigo);
+
+        dao.guardar(estudiante.getMaterias());
+    }
 }
    
 
