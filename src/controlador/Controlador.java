@@ -53,6 +53,16 @@ public class Controlador {
 
         dao.guardar(estudiante.getMaterias());
     }
+    
+    public void registrarAsistencia (String codigo, boolean presente)
+    {
+        InscripcionMateria insc = estudiante.buscarMateria(codigo);
+        
+        if (insc !=null) {
+            insc.registrarAsistencia (presente);
+            dao.guardar(estudiante.getMaterias());
+        }
+    }
 }
    
 
