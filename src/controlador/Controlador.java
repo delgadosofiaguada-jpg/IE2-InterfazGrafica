@@ -63,6 +63,15 @@ public class Controlador {
             dao.guardar(estudiante.getMaterias());
         }
     }
+    
+    public void registrarNota (String codigo, double nota)
+    {
+        InscripcionMateria insc = estudiante.buscarMateria(codigo);
+        if (insc != null) {
+            insc.agregarNota(nota);
+            dao.guardar(estudiante.getMaterias());   
+        }
+    }
 }
    
 
