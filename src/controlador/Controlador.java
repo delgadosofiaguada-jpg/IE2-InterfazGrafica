@@ -23,7 +23,7 @@ public class Controlador {
       estudiante = new Estudiante ( 
        
        "Sofia",
-        "1,2,3,4",
+        "1234",
         "Sistemas",
           2023
       ); 
@@ -72,6 +72,12 @@ public class Controlador {
             dao.guardar(estudiante.getMaterias());   
         }
     }
+    public Estudiante getEstudiante()
+    {
+        return estudiante;
+    }
+    
+    
 }
    
 
