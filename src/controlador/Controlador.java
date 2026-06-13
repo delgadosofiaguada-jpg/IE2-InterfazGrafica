@@ -77,7 +77,10 @@ public class Controlador {
         return estudiante;
     }
     
-    
+    public InscripcionMateria buscarMateria (String codigo)
+    {
+        return estudiante.buscarMateria(codigo);
+    }
 }
    
 
