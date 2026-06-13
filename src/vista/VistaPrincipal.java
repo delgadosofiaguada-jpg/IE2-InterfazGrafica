@@ -54,6 +54,68 @@ public class VistaPrincipal extends JFrame {
         setVisible(true);
     }
     
+     public void setControlador(Controlador c) { this.controlador = c; }
+
+    // MENÚ (Martina)
+    private void initMenuBar() {
+        JMenuBar bar = new JMenuBar();
+        bar.setBackground(AZUL_OSCURO);
+
+        JMenu mArchivo = new JMenu("Archivo");
+        mArchivo.setForeground(BLANCO);
+        JMenuItem cerrar = new JMenuItem("Cerrar");
+        cerrar.addActionListener(e -> System.exit(0));
+        mArchivo.add(cerrar);
+
+        JMenu mReportes = new JMenu("Reportes");
+        mReportes.setForeground(BLANCO);
+
+        JMenuItem iSit = new JMenuItem("Situacion General");
+        iSit.addActionListener(e -> {
+            controlador.generarReporteSituacion();
+            cardLayout.show(panelCentral, "reportes");
+        });
+    }
+    
+    // PANEL NORTE — barra azul con perfil 
+    private void initPanelNorte() {
+        JPanel norte = new JPanel(new FlowLayout(FlowLayout.LEFT, 16, 10));
+        norte.setBackground(AZUL_OSCURO);
+
+        JLabel titulo = new JLabel("IES SIGLO 21");
+        titulo.setFont(new Font("SansSerif", Font.BOLD, 14));
+        titulo.setForeground(new Color(0xC0, 0xA0, 0xFF)); // violeta claro
+        norte.add(titulo);
+
+        lblNombre   = new JLabel("Nombre: -");
+        lblLegajo   = new JLabel("Legajo: -");
+        lblCarrera  = new JLabel("Carrera: -");
+        lblAnio     = new JLabel("Ingreso: -");
+        lblPromedio = new JLabel("Promedio: 0.00");
+        
+        for (JLabel l : new JLabel[]{lblNombre, lblLegajo, lblCarrera, lblAnio, lblPromedio}) {
+            l.setForeground(BLANCO);
+            l.setFont(new Font("SansSerif", Font.BOLD, 13));
+            norte.add(l);
+        }
+
+        add(norte, BorderLayout.NORTH);
+    }
+    
+    // CARD LAYOUT — navegación entre pantallas (Martina)
+    private void initPanelCentral() {
+        cardLayout = new CardLayout();
+        panelCentral = new JPanel(cardLayout);
+        panelCentral.setBackground(AZUL_OSCURO);
+
+        panelCentral.add(buildPanelPrincipal(), "principal");
+        panelCentral.add(buildPanelReportes(),  "reportes");
+
+        add(panelCentral, BorderLayout.CENTER);
+    }
+    
+    
+    
     
     
     
