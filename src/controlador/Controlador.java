@@ -81,6 +81,25 @@ public class Controlador {
     {
         return estudiante.buscarMateria(codigo);
     }
+    
+    public String generarReporteSituacion()
+    {
+        String reporte = "SITUACION GENERAL\n\n";
+
+        for (InscripcionMateria i : estudiante.getMaterias())
+        {
+            reporte += i.getMateria().getNombre()
+                + " - " + i.getCondicion()
+                + " - " + String.format("%.1f", i.getPorcentajeAsistencia()) + "%"
+                + " - Promedio: " + String.format("%.2f", i.getNota())
+                + "\n";
+        }
+
+        reporte += "\nPromedio general: "
+            + String.format("%.2f", estudiante.getPromedioGeneral());
+
+        return reporte;
+    }
 }
    
 
