@@ -114,6 +114,72 @@ public class VistaPrincipal extends JFrame {
         add(panelCentral, BorderLayout.CENTER);
     }
     
+    private JPanel buildPanelPrincipal() {
+        JPanel panel = new JPanel(new BorderLayout(8, 8));
+        panel.setBackground(AZUL_PANEL);
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        // JTable (Martina)
+        String[] cols = {"Nombre", "Codigo", "Cuatri", "Anio", "Condicion", "Asist%", "Promedio"};
+        modeloTabla = new DefaultTableModel(cols, 0) {
+            public boolean isCellEditable(int r, int c) { return false; }
+        };
+        
+        tablaMaterias = new JTable(modeloTabla);
+        tablaMaterias.setRowHeight(24);
+        tablaMaterias.setBackground(new Color(0x3A, 0x5A, 0x9A));
+        tablaMaterias.setForeground(BLANCO);
+        tablaMaterias.getTableHeader().setBackground(AZUL_OSCURO);
+        tablaMaterias.getTableHeader().setForeground(BLANCO);
+        tablaMaterias.setSelectionBackground(VIOLETA_BTN);
+        tablaMaterias.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        JScrollPane scrollTabla = new JScrollPane(tablaMaterias);
+        scrollTabla.setBorder(BorderFactory.createTitledBorder(
+            BorderFactory.createLineBorder(Color.LIGHT_GRAY), "Materias inscriptas"));
+        
+        // JList alertas (Martina)
+        modeloLista = new DefaultListModel<>();
+        listaAlertas = new JList<>(modeloLista);
+        listaAlertas.setBackground(new Color(0x3A, 0x5A, 0x9A));
+        listaAlertas.setForeground(BLANCO);
+
+        JScrollPane scrollLista = new JScrollPane(listaAlertas);
+        scrollLista.setPreferredSize(new Dimension(240, 0));
+        scrollLista.setBorder(BorderFactory.createTitledBorder(
+            BorderFactory.createLineBorder(Color.LIGHT_GRAY), "Materias en riesgo (75-85%)"));
+
+        JPanel centroTabla = new JPanel(new BorderLayout(6, 0));
+        centroTabla.setBackground(AZUL_PANEL);
+        centroTabla.add(scrollTabla, BorderLayout.CENTER);
+        centroTabla.add(scrollLista, BorderLayout.EAST);
+        
+        JPanel panelFormularios = buildPanelFormularios();
+
+        lblEstado = new JLabel(" ");
+        lblEstado.setForeground(BLANCO);
+        lblEstado.setFont(new Font("SansSerif", Font.ITALIC, 12));
+
+        JPanel sur = new JPanel(new BorderLayout());
+        sur.setBackground(AZUL_PANEL);
+        sur.add(panelFormularios, BorderLayout.CENTER);
+        sur.add(lblEstado,BorderLayout.SOUTH);
+
+        panel.add(centroTabla, BorderLayout.CENTER);
+        panel.add(sur,BorderLayout.SOUTH);
+
+        return panel;
+    }
+    private JPanel buildPanelFormularios() {
+        JPanel p = new JPanel(new GridLayout(1, 3, 8, 0));
+        p.setBackground(AZUL_PANEL);
+        return p;
+    }
+    
+    
+
+       
+    
     
     
     
