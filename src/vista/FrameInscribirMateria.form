@@ -39,6 +39,23 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reportes Academicos"/>
               </Properties>
+              <SubComponents>
+                <Menu class="javax.swing.JMenu" name="jMenu2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Situacion General"/>
+                  </Properties>
+                </Menu>
+                <Menu class="javax.swing.JMenu" name="jMenu3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Materias en Riesgo"/>
+                  </Properties>
+                </Menu>
+                <Menu class="javax.swing.JMenu" name="jMenu4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Materias Aprobadas"/>
+                  </Properties>
+                </Menu>
+              </SubComponents>
             </Menu>
             <Menu class="javax.swing.JMenu" name="ItemsSalir">
               <Properties>

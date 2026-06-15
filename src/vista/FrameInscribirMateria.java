@@ -44,6 +44,9 @@ public class FrameInscribirMateria extends javax.swing.JInternalFrame {
         itemAsistencias = new javax.swing.JMenu();
         ItemsCalificacion = new javax.swing.JMenu();
         ItemsAcademicos = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         ItemsSalir = new javax.swing.JMenu();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -84,6 +87,16 @@ public class FrameInscribirMateria extends javax.swing.JInternalFrame {
         jMenu1.add(ItemsCalificacion);
 
         ItemsAcademicos.setText("Reportes Academicos");
+
+        jMenu2.setText("Situacion General");
+        ItemsAcademicos.add(jMenu2);
+
+        jMenu3.setText("Materias en Riesgo");
+        ItemsAcademicos.add(jMenu3);
+
+        jMenu4.setText("Materias Aprobadas");
+        ItemsAcademicos.add(jMenu4);
+
         jMenu1.add(ItemsAcademicos);
 
         ItemsSalir.setText("Salir");
@@ -181,6 +194,9 @@ public class FrameInscribirMateria extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JTextField txtAño;
     private javax.swing.JTextField txtCodigo;
