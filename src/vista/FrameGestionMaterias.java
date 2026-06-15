@@ -33,9 +33,7 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         TablaMaterias = new javax.swing.JTable();
         btnBaja = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        Panelinscribir = new javax.swing.JPanel();
+        btnInscribirse = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         ItemPerfil = new javax.swing.JMenu();
@@ -71,25 +69,7 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
 
         btnVolver.setText("Volver al Inicio");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane5.setViewportView(jList1);
-
-        Panelinscribir.setBorder(javax.swing.BorderFactory.createTitledBorder("Inscribir Materia"));
-
-        javax.swing.GroupLayout PanelinscribirLayout = new javax.swing.GroupLayout(Panelinscribir);
-        Panelinscribir.setLayout(PanelinscribirLayout);
-        PanelinscribirLayout.setHorizontalGroup(
-            PanelinscribirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 176, Short.MAX_VALUE)
-        );
-        PanelinscribirLayout.setVerticalGroup(
-            PanelinscribirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 144, Short.MAX_VALUE)
-        );
+        btnInscribirse.setText("Inscribirse a la Materia");
 
         jMenuBar1.setBackground(new java.awt.Color(27, 58, 107));
 
@@ -123,17 +103,18 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(71, 71, 71)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
                         .addComponent(btnBaja)
                         .addGap(30, 30, 30)
-                        .addComponent(btnVolver)
-                        .addGap(54, 54, 54)
-                        .addComponent(Panelinscribir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnInscribirse))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(btnVolver)))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -141,15 +122,13 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnBaja)
-                            .addComponent(btnVolver))
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Panelinscribir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBaja)
+                    .addComponent(btnInscribirse))
+                .addGap(41, 41, 41)
+                .addComponent(btnVolver)
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         pack();
@@ -163,17 +142,15 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JMenu ItemsAcademicos;
     private javax.swing.JMenu ItemsCalificacion;
     private javax.swing.JMenu ItemsSalir;
-    private javax.swing.JPanel Panelinscribir;
     private javax.swing.JTable TablaMaterias;
     private javax.swing.JButton btnBaja;
+    private javax.swing.JButton btnInscribirse;
     private javax.swing.JButton btnVolver;
     private javax.swing.JMenu itemAsistencias;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     // End of variables declaration//GEN-END:variables
 }
