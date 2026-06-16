@@ -53,7 +53,9 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
             modeloLista.addElement(i.getMateria().getNombre()
                 + "  —  " + String.format("%.1f%%", i.getPorcentajeAsistencia()));
         listaRiesgo.setModel(modeloLista);
-
+        if (modeloLista.isEmpty()) {
+        modeloLista.addElement("— Ninguna materia en riesgo (75%-85%) —");
+        }
         ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
         ItemGestionM.addActionListener(e -> abrirFrame(new FrameGestionMaterias(controlador), 900, 550, 50, 30));
         ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
