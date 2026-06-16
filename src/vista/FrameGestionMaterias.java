@@ -15,6 +15,8 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
      */
     public FrameGestionMaterias() {
         initComponents();
+        setBackground(new java.awt.Color(200, 216, 240));
+        getContentPane().setBackground(new java.awt.Color(200, 216, 240));
     }
 
     /**
@@ -34,14 +36,17 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         btnBaja = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         btnInscribirse = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        ItemPerfil = new javax.swing.JMenu();
-        ItemMaterias = new javax.swing.JMenu();
-        itemAsistencias = new javax.swing.JMenu();
-        ItemsCalificacion = new javax.swing.JMenu();
-        ItemsAcademicos = new javax.swing.JMenu();
-        ItemsSalir = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu10 = new javax.swing.JMenu();
+        ItemPerfil = new javax.swing.JMenuItem();
+        ItemAsistencia = new javax.swing.JMenuItem();
+        ItemGestionM = new javax.swing.JMenuItem();
+        ItemCalificacion = new javax.swing.JMenuItem();
+        Reportes = new javax.swing.JMenu();
+        ItemSitGeneral = new javax.swing.JMenuItem();
+        ItemMatRiesgo = new javax.swing.JMenuItem();
+        ItemMatAprobadas = new javax.swing.JMenuItem();
+        ItemSalir = new javax.swing.JMenuItem();
 
         Alertas.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -49,6 +54,8 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2.setViewportView(Alertas);
+
+        setBackground(new java.awt.Color(200, 216, 240));
 
         TablaMaterias.setBorder(javax.swing.BorderFactory.createTitledBorder("Materias Inscriptas"));
         TablaMaterias.setForeground(new java.awt.Color(255, 255, 255));
@@ -65,38 +72,51 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
 
         jScrollPane4.setViewportView(jScrollPane1);
 
+        btnBaja.setBackground(new java.awt.Color(107, 79, 163));
+        btnBaja.setForeground(new java.awt.Color(255, 255, 255));
         btnBaja.setText("Dar De Baja");
 
         btnVolver.setText("Volver al Inicio");
 
+        btnInscribirse.setBackground(new java.awt.Color(107, 79, 163));
+        btnInscribirse.setForeground(new java.awt.Color(255, 255, 255));
         btnInscribirse.setText("Inscribirse a la Materia");
 
-        jMenuBar1.setBackground(new java.awt.Color(27, 58, 107));
+        jMenuBar2.setBackground(new java.awt.Color(200, 216, 240));
 
-        jMenu1.setText("Menu");
+        jMenu10.setText("Menu");
 
         ItemPerfil.setText("Mi Perfil");
-        jMenu1.add(ItemPerfil);
+        jMenu10.add(ItemPerfil);
 
-        ItemMaterias.setText("Gestion De Materias");
-        jMenu1.add(ItemMaterias);
+        ItemAsistencia.setText("Registrar Asistencia");
+        jMenu10.add(ItemAsistencia);
 
-        itemAsistencias.setText("Registrar Asistencia ");
-        jMenu1.add(itemAsistencias);
+        ItemGestionM.setText("Gestion de Materias");
+        jMenu10.add(ItemGestionM);
 
-        ItemsCalificacion.setText("Registrar Calificacion ");
-        ItemsCalificacion.setToolTipText("");
-        jMenu1.add(ItemsCalificacion);
+        ItemCalificacion.setText("Registrar Calificacion");
+        jMenu10.add(ItemCalificacion);
 
-        ItemsAcademicos.setText("Reportes Academicos");
-        jMenu1.add(ItemsAcademicos);
+        Reportes.setText("Reportes Academicos");
 
-        ItemsSalir.setText("Salir");
-        jMenu1.add(ItemsSalir);
+        ItemSitGeneral.setText("Situacion General");
+        Reportes.add(ItemSitGeneral);
 
-        jMenuBar1.add(jMenu1);
+        ItemMatRiesgo.setText("Materias en Riesgo");
+        Reportes.add(ItemMatRiesgo);
 
-        setJMenuBar(jMenuBar1);
+        ItemMatAprobadas.setText("Materias Aprobadas");
+        Reportes.add(ItemMatAprobadas);
+
+        jMenu10.add(Reportes);
+
+        ItemSalir.setText("Salir");
+        jMenu10.add(ItemSalir);
+
+        jMenuBar2.add(jMenu10);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,7 +148,7 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
                     .addComponent(btnInscribirse))
                 .addGap(41, 41, 41)
                 .addComponent(btnVolver)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         pack();
@@ -137,18 +157,21 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> Alertas;
-    private javax.swing.JMenu ItemMaterias;
-    private javax.swing.JMenu ItemPerfil;
-    private javax.swing.JMenu ItemsAcademicos;
-    private javax.swing.JMenu ItemsCalificacion;
-    private javax.swing.JMenu ItemsSalir;
+    private javax.swing.JMenuItem ItemAsistencia;
+    private javax.swing.JMenuItem ItemCalificacion;
+    private javax.swing.JMenuItem ItemGestionM;
+    private javax.swing.JMenuItem ItemMatAprobadas;
+    private javax.swing.JMenuItem ItemMatRiesgo;
+    private javax.swing.JMenuItem ItemPerfil;
+    private javax.swing.JMenuItem ItemSalir;
+    private javax.swing.JMenuItem ItemSitGeneral;
+    private javax.swing.JMenu Reportes;
     private javax.swing.JTable TablaMaterias;
     private javax.swing.JButton btnBaja;
     private javax.swing.JButton btnInscribirse;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JMenu itemAsistencias;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;

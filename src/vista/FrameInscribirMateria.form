@@ -2,73 +2,72 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <NonVisualComponents>
-    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="6b" green="3a" red="1b" type="rgb"/>
+          <Color blue="f0" green="d8" red="c8" type="rgb"/>
         </Property>
       </Properties>
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="jMenu10">
           <Properties>
             <Property name="text" type="java.lang.String" value="Menu"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="ItemPerfil">
+            <MenuItem class="javax.swing.JMenuItem" name="ItemPerfil">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mi Perfil"/>
               </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="ItemMaterias">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ItemAsistencia">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Gestion De Materias"/>
+                <Property name="text" type="java.lang.String" value="Registrar Asistencia"/>
               </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="itemAsistencias">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ItemGestionM">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Registrar Asistencia "/>
+                <Property name="text" type="java.lang.String" value="Gestion de Materias"/>
               </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="ItemsCalificacion">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ItemCalificacion">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Registrar Calificacion "/>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
+                <Property name="text" type="java.lang.String" value="Registrar Calificacion"/>
               </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="ItemsAcademicos">
+            </MenuItem>
+            <Menu class="javax.swing.JMenu" name="Reportes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reportes Academicos"/>
               </Properties>
               <SubComponents>
-                <Menu class="javax.swing.JMenu" name="jMenu2">
+                <MenuItem class="javax.swing.JMenuItem" name="ItemSitGeneral">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Situacion General"/>
                   </Properties>
-                </Menu>
-                <Menu class="javax.swing.JMenu" name="jMenu3">
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="ItemMatRiesgo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Materias en Riesgo"/>
                   </Properties>
-                </Menu>
-                <Menu class="javax.swing.JMenu" name="jMenu4">
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="ItemMatAprobadas">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Materias Aprobadas"/>
                   </Properties>
-                </Menu>
+                </MenuItem>
               </SubComponents>
             </Menu>
-            <Menu class="javax.swing.JMenu" name="ItemsSalir">
+            <MenuItem class="javax.swing.JMenuItem" name="ItemSalir">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
-            </Menu>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar2"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
   </SyntheticProperties>
   <AuxValues>
@@ -214,11 +213,23 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnInscripcion">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="a3" green="4f" red="6b" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Confirmar Inscripcion "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnCancelar">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="a3" green="4f" red="6b" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
     </Component>

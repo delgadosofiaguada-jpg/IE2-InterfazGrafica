@@ -78,7 +78,9 @@ public class VistaPrincipalFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new VistaPrincipalFrame().setVisible(true));
     }
-
+    public javax.swing.JDesktopPane getDesktop() {
+    return jDesktopPane1;
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
     // End of variables declaration//GEN-END:variables

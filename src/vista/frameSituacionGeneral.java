@@ -14,7 +14,9 @@ public class frameSituacionGeneral extends javax.swing.JInternalFrame {
      * Creates new form frameSituacionGeneral
      */
     public frameSituacionGeneral() {
-        initComponents();
+         initComponents();
+        setBackground(new java.awt.Color(200, 216, 240));
+        getContentPane().setBackground(new java.awt.Color(200, 216, 240));
     }
 
     /**
@@ -27,25 +29,28 @@ public class frameSituacionGeneral extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        NombreAlumno = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaMaterias = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        ItemPerfil = new javax.swing.JMenu();
-        ItemMaterias = new javax.swing.JMenu();
-        itemAsistencias = new javax.swing.JMenu();
-        ItemsCalificacion = new javax.swing.JMenu();
-        ItemsAcademicos = new javax.swing.JMenu();
-        ItemsSalir = new javax.swing.JMenu();
+        PromedioGeneral = new javax.swing.JLabel();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu = new javax.swing.JMenu();
+        ItemPerfil = new javax.swing.JMenuItem();
+        ItemAsistencia = new javax.swing.JMenuItem();
+        ItemGestionM = new javax.swing.JMenuItem();
+        ItemCalificacion = new javax.swing.JMenuItem();
+        MenuReportes = new javax.swing.JMenu();
+        ItemSitGen = new javax.swing.JMenuItem();
+        ItemMatRiesgo = new javax.swing.JMenuItem();
+        ItemMatAprobadas = new javax.swing.JMenuItem();
+        ItemSalir = new javax.swing.JMenuItem();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Situacion General ");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("(Persona nombrada)");
+        NombreAlumno.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         TablaMaterias.setBorder(javax.swing.BorderFactory.createTitledBorder("Materias Inscriptas"));
         TablaMaterias.setForeground(new java.awt.Color(255, 255, 255));
@@ -63,72 +68,87 @@ public class frameSituacionGeneral extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Promedio General: ");
 
+        btnVolver.setBackground(new java.awt.Color(107, 79, 163));
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver al Inicio");
 
-        jMenuBar1.setBackground(new java.awt.Color(27, 58, 107));
+        jMenuBar2.setBackground(new java.awt.Color(200, 216, 240));
 
-        jMenu1.setText("Menu");
+        jMenu.setText("Menu");
 
         ItemPerfil.setText("Mi Perfil");
-        jMenu1.add(ItemPerfil);
+        jMenu.add(ItemPerfil);
 
-        ItemMaterias.setText("Gestion De Materias");
-        jMenu1.add(ItemMaterias);
+        ItemAsistencia.setText("Registrar Asistencia");
+        jMenu.add(ItemAsistencia);
 
-        itemAsistencias.setText("Registrar Asistencia ");
-        jMenu1.add(itemAsistencias);
+        ItemGestionM.setText("Gestion de Materias");
+        jMenu.add(ItemGestionM);
 
-        ItemsCalificacion.setText("Registrar Calificacion ");
-        ItemsCalificacion.setToolTipText("");
-        jMenu1.add(ItemsCalificacion);
+        ItemCalificacion.setText("Registrar Calificacion");
+        jMenu.add(ItemCalificacion);
 
-        ItemsAcademicos.setText("Reportes Academicos");
-        jMenu1.add(ItemsAcademicos);
+        MenuReportes.setText("Reportes Academicos");
 
-        ItemsSalir.setText("Salir");
-        jMenu1.add(ItemsSalir);
+        ItemSitGen.setText("Situacion General");
+        MenuReportes.add(ItemSitGen);
 
-        jMenuBar1.add(jMenu1);
+        ItemMatRiesgo.setText("Materias en Riesgo");
+        MenuReportes.add(ItemMatRiesgo);
 
-        setJMenuBar(jMenuBar1);
+        ItemMatAprobadas.setText("Materias Aprobadas");
+        MenuReportes.add(ItemMatAprobadas);
+
+        jMenu.add(MenuReportes);
+
+        ItemSalir.setText("Salir");
+        jMenu.add(ItemSalir);
+
+        jMenuBar2.add(jMenu);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(133, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(82, 82, 82))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(319, 319, 319))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(310, 310, 310)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVolver)
-                        .addGap(136, 136, 136))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(82, 82, 82))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(310, 310, 310)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addGap(18, 18, 18)
+                            .addComponent(PromedioGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVolver)
+                            .addGap(136, 136, 136)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(NombreAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(319, 319, 319))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(NombreAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(btnVolver))
-                .addContainerGap(37, Short.MAX_VALUE))
+                    .addComponent(btnVolver)
+                    .addComponent(PromedioGeneral))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,19 +156,23 @@ public class frameSituacionGeneral extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu ItemMaterias;
-    private javax.swing.JMenu ItemPerfil;
-    private javax.swing.JMenu ItemsAcademicos;
-    private javax.swing.JMenu ItemsCalificacion;
-    private javax.swing.JMenu ItemsSalir;
+    private javax.swing.JMenuItem ItemAsistencia;
+    private javax.swing.JMenuItem ItemCalificacion;
+    private javax.swing.JMenuItem ItemGestionM;
+    private javax.swing.JMenuItem ItemMatAprobadas;
+    private javax.swing.JMenuItem ItemMatRiesgo;
+    private javax.swing.JMenuItem ItemPerfil;
+    private javax.swing.JMenuItem ItemSalir;
+    private javax.swing.JMenuItem ItemSitGen;
+    private javax.swing.JMenu MenuReportes;
+    private javax.swing.JLabel NombreAlumno;
+    private javax.swing.JLabel PromedioGeneral;
     private javax.swing.JTable TablaMaterias;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JMenu itemAsistencias;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenu;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

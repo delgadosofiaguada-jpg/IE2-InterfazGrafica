@@ -15,8 +15,8 @@ public class FrameBienvenida extends javax.swing.JInternalFrame {
      */
     public FrameBienvenida() {
         initComponents();
-        setBackground(new java.awt.Color(27, 58, 107));
-        getContentPane().setBackground(new java.awt.Color(27, 58, 107));
+        setBackground(new java.awt.Color(200, 216, 240));
+        getContentPane().setBackground(new java.awt.Color(200, 216, 240));
         
     }
 
@@ -33,9 +33,10 @@ public class FrameBienvenida extends javax.swing.JInternalFrame {
         lblSubtitulo = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 0, 102));
+        setBackground(new java.awt.Color(200, 216, 240));
         setTitle("Sistema de Autogestion");
 
+        lblTitulo.setBackground(new java.awt.Color(200, 216, 240));
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo.setText("Sistema De Autogestion");
 
@@ -53,15 +54,15 @@ public class FrameBienvenida extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
+                        .addGap(139, 139, 139)
                         .addComponent(lblTitulo))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
+                        .addGap(169, 169, 169)
                         .addComponent(lblSubtitulo))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
+                        .addGap(237, 237, 237)
                         .addComponent(btnIngresar)))
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,9 +71,9 @@ public class FrameBienvenida extends javax.swing.JInternalFrame {
                 .addComponent(lblTitulo)
                 .addGap(18, 18, 18)
                 .addComponent(lblSubtitulo)
-                .addGap(47, 47, 47)
+                .addGap(48, 48, 48)
                 .addComponent(btnIngresar)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         pack();

@@ -15,8 +15,8 @@ public class FramePerfil extends javax.swing.JInternalFrame {
      */
     public FramePerfil() {
         initComponents();
-        getContentPane().setBackground(new java.awt.Color(27, 58, 107));
-        
+        setBackground(new java.awt.Color(200, 216, 240));
+        getContentPane().setBackground(new java.awt.Color(200, 216, 240));
     }
 
     /**
@@ -28,13 +28,6 @@ public class FramePerfil extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -52,28 +45,17 @@ public class FramePerfil extends javax.swing.JInternalFrame {
         btnVolver = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu10 = new javax.swing.JMenu();
-        Perfil = new javax.swing.JMenu();
-        Asistencia = new javax.swing.JMenu();
-        Materias = new javax.swing.JMenu();
-        Calificacion = new javax.swing.JMenu();
+        ItemPerfil = new javax.swing.JMenuItem();
+        ItemAsistencia = new javax.swing.JMenuItem();
+        ItemGestionM = new javax.swing.JMenuItem();
+        ItemCalificacion = new javax.swing.JMenuItem();
         Reportes = new javax.swing.JMenu();
-        Salir = new javax.swing.JMenu();
+        ItemSitGeneral = new javax.swing.JMenuItem();
+        ItemMatRiesgo = new javax.swing.JMenuItem();
+        ItemMatAprobadas = new javax.swing.JMenuItem();
+        ItemSalir = new javax.swing.JMenuItem();
 
-        jMenu1.setText("jMenu1");
-
-        jMenu2.setText("jMenu2");
-
-        jMenu3.setText("jMenu3");
-
-        jMenu4.setText("jMenu4");
-
-        jMenu5.setText("jMenu5");
-
-        jMenu6.setText("jMenu6");
-
-        jMenu7.setText("jMenu7");
-
-        setBackground(new java.awt.Color(27, 58, 107));
+        setBackground(new java.awt.Color(200, 216, 240));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         jLabel1.setText("IES Siglo 21");
@@ -101,48 +83,48 @@ public class FramePerfil extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombreValor)
-                    .addComponent(lblLegajoValor)
-                    .addComponent(lblCarreraValor)
-                    .addComponent(lblingresoValor)
-                    .addComponent(lblMateriasValor)
-                    .addComponent(lblPromedioValor))
+                    .addComponent(lblNombreValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblLegajoValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCarreraValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblingresoValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblMateriasValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPromedioValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(162, 162, 162))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblNombreValor))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNombreValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(lblLegajoValor))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblLegajoValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(lblCarreraValor))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCarreraValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(lblingresoValor))
+                    .addComponent(lblingresoValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(lblMateriasValor))
+                    .addComponent(lblMateriasValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(lblPromedioValor))
+                    .addComponent(lblPromedioValor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -150,27 +132,37 @@ public class FramePerfil extends javax.swing.JInternalFrame {
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver al Inicio");
 
+        jMenuBar2.setBackground(new java.awt.Color(200, 216, 240));
+
         jMenu10.setText("Menu");
 
-        Perfil.setText("Mi Perfil");
-        jMenu10.add(Perfil);
+        ItemPerfil.setText("Mi Perfil");
+        jMenu10.add(ItemPerfil);
 
-        Asistencia.setText("Registrar Asistencia");
-        jMenu10.add(Asistencia);
+        ItemAsistencia.setText("Registrar Asistencia");
+        jMenu10.add(ItemAsistencia);
 
-        Materias.setText("Gestion De Materias");
-        jMenu10.add(Materias);
+        ItemGestionM.setText("Gestion de Materias");
+        jMenu10.add(ItemGestionM);
 
-        Calificacion.setText("Registrar Calificacion");
-        jMenu10.add(Calificacion);
+        ItemCalificacion.setText("Registrar Calificacion");
+        jMenu10.add(ItemCalificacion);
 
-        Reportes.setText("Reportes Aademicos");
-        Reportes.setActionCommand("Reportes Aademicos");
+        Reportes.setText("Reportes Academicos");
+
+        ItemSitGeneral.setText("Situacion General");
+        Reportes.add(ItemSitGeneral);
+
+        ItemMatRiesgo.setText("Materias en Riesgo");
+        Reportes.add(ItemMatRiesgo);
+
+        ItemMatAprobadas.setText("Materias Aprobadas");
+        Reportes.add(ItemMatAprobadas);
+
         jMenu10.add(Reportes);
 
-        Salir.setText("Salir");
-        Salir.setActionCommand("Salir");
-        jMenu10.add(Salir);
+        ItemSalir.setText("Salir");
+        jMenu10.add(ItemSalir);
 
         jMenuBar2.add(jMenu10);
 
@@ -180,26 +172,20 @@ public class FramePerfil extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(182, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnVolver)
-                .addGap(191, 191, 191))
+                .addGap(0, 295, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVolver)
+                    .addComponent(jLabel1)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnVolver)
@@ -211,12 +197,15 @@ public class FramePerfil extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Asistencia;
-    private javax.swing.JMenu Calificacion;
-    private javax.swing.JMenu Materias;
-    private javax.swing.JMenu Perfil;
+    private javax.swing.JMenuItem ItemAsistencia;
+    private javax.swing.JMenuItem ItemCalificacion;
+    private javax.swing.JMenuItem ItemGestionM;
+    private javax.swing.JMenuItem ItemMatAprobadas;
+    private javax.swing.JMenuItem ItemMatRiesgo;
+    private javax.swing.JMenuItem ItemPerfil;
+    private javax.swing.JMenuItem ItemSalir;
+    private javax.swing.JMenuItem ItemSitGeneral;
     private javax.swing.JMenu Reportes;
-    private javax.swing.JMenu Salir;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -225,14 +214,7 @@ public class FramePerfil extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCarreraValor;

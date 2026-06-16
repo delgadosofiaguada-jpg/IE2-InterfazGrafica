@@ -14,7 +14,10 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
      * Creates new form FrameMateriasEnRiesgo
      */
     public FrameMateriasEnRiesgo() {
-        initComponents();
+       initComponents();
+        setBackground(new java.awt.Color(200, 216, 240));
+        getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+
     }
 
     /**
@@ -28,16 +31,19 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        MateriaRiesgo = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        ItemPerfil = new javax.swing.JMenu();
-        ItemMaterias = new javax.swing.JMenu();
-        itemAsistencias = new javax.swing.JMenu();
-        ItemsCalificacion = new javax.swing.JMenu();
-        ItemsAcademicos = new javax.swing.JMenu();
-        ItemsSalir = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu10 = new javax.swing.JMenu();
+        ItemPerfil = new javax.swing.JMenuItem();
+        ItemAsistencia = new javax.swing.JMenuItem();
+        ItemGestionM = new javax.swing.JMenuItem();
+        ItemCalificacion = new javax.swing.JMenuItem();
+        Reportes = new javax.swing.JMenu();
+        ItemSitGeneral = new javax.swing.JMenuItem();
+        ItemMatRiesgo = new javax.swing.JMenuItem();
+        ItemMatAprobadas = new javax.swing.JMenuItem();
+        ItemSalir = new javax.swing.JMenuItem();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Materias en Riesgo");
@@ -45,36 +51,48 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Asistencias entre el 75% y 85%");
 
-        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        MateriaRiesgo.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        MateriaRiesgo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        btnVolver.setBackground(new java.awt.Color(107, 79, 163));
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver al inicio ");
 
-        jMenuBar1.setBackground(new java.awt.Color(27, 58, 107));
+        jMenuBar2.setBackground(new java.awt.Color(200, 216, 240));
 
-        jMenu1.setText("Menu");
+        jMenu10.setText("Menu");
 
         ItemPerfil.setText("Mi Perfil");
-        jMenu1.add(ItemPerfil);
+        jMenu10.add(ItemPerfil);
 
-        ItemMaterias.setText("Gestion De Materias");
-        jMenu1.add(ItemMaterias);
+        ItemAsistencia.setText("Registrar Asistencia");
+        jMenu10.add(ItemAsistencia);
 
-        itemAsistencias.setText("Registrar Asistencia ");
-        jMenu1.add(itemAsistencias);
+        ItemGestionM.setText("Gestion de Materias");
+        jMenu10.add(ItemGestionM);
 
-        ItemsCalificacion.setText("Registrar Calificacion ");
-        ItemsCalificacion.setToolTipText("");
-        jMenu1.add(ItemsCalificacion);
+        ItemCalificacion.setText("Registrar Calificacion");
+        jMenu10.add(ItemCalificacion);
 
-        ItemsAcademicos.setText("Reportes Academicos");
-        jMenu1.add(ItemsAcademicos);
+        Reportes.setText("Reportes Academicos");
 
-        ItemsSalir.setText("Salir");
-        jMenu1.add(ItemsSalir);
+        ItemSitGeneral.setText("Situacion General");
+        Reportes.add(ItemSitGeneral);
 
-        jMenuBar1.add(jMenu1);
+        ItemMatRiesgo.setText("Materias en Riesgo");
+        Reportes.add(ItemMatRiesgo);
 
-        setJMenuBar(jMenuBar1);
+        ItemMatAprobadas.setText("Materias Aprobadas");
+        Reportes.add(ItemMatAprobadas);
+
+        jMenu10.add(Reportes);
+
+        ItemSalir.setText("Salir");
+        jMenu10.add(ItemSalir);
+
+        jMenuBar2.add(jMenu10);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,7 +106,7 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(190, 190, 190)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MateriaRiesgo, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                             .addComponent(jLabel2)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(229, 229, 229)
@@ -102,9 +120,9 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
+                .addComponent(MateriaRiesgo, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnVolver)
                 .addContainerGap(93, Short.MAX_VALUE))
         );
@@ -114,17 +132,20 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu ItemMaterias;
-    private javax.swing.JMenu ItemPerfil;
-    private javax.swing.JMenu ItemsAcademicos;
-    private javax.swing.JMenu ItemsCalificacion;
-    private javax.swing.JMenu ItemsSalir;
+    private javax.swing.JMenuItem ItemAsistencia;
+    private javax.swing.JMenuItem ItemCalificacion;
+    private javax.swing.JMenuItem ItemGestionM;
+    private javax.swing.JMenuItem ItemMatAprobadas;
+    private javax.swing.JMenuItem ItemMatRiesgo;
+    private javax.swing.JMenuItem ItemPerfil;
+    private javax.swing.JMenuItem ItemSalir;
+    private javax.swing.JMenuItem ItemSitGeneral;
+    private javax.swing.JLabel MateriaRiesgo;
+    private javax.swing.JMenu Reportes;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JMenu itemAsistencias;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenuBar jMenuBar2;
     // End of variables declaration//GEN-END:variables
 }

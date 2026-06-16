@@ -15,6 +15,8 @@ public class FrameAsistencias extends javax.swing.JInternalFrame {
      */
     public FrameAsistencias() {
         initComponents();
+        setBackground(new java.awt.Color(200, 216, 240));
+        getContentPane().setBackground(new java.awt.Color(200, 216, 240));
     }
 
     /**
@@ -33,16 +35,22 @@ public class FrameAsistencias extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         rdbPresente = new javax.swing.JRadioButton();
         rdbAusente = new javax.swing.JRadioButton();
+        lblEstadoAsistencia1 = new javax.swing.JLabel();
+        Estado = new javax.swing.JLabel();
+        SituacionActual1 = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
         btnResgistrar = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu10 = new javax.swing.JMenu();
+        ItemPerfil = new javax.swing.JMenuItem();
+        ItemAsistencia = new javax.swing.JMenuItem();
+        ItemGestionM = new javax.swing.JMenuItem();
+        ItemCalificacion = new javax.swing.JMenuItem();
+        Reportes = new javax.swing.JMenu();
+        ItemSitGeneral = new javax.swing.JMenuItem();
+        ItemMatRiesgo = new javax.swing.JMenuItem();
+        ItemMatAprobadas = new javax.swing.JMenuItem();
+        ItemSalir = new javax.swing.JMenuItem();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Seleccione una Materia:");
@@ -50,7 +58,7 @@ public class FrameAsistencias extends javax.swing.JInternalFrame {
         cmbMaterias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matematica (MAT)", "Programacion (PRO)", "Base De Datos (BDD)" }));
 
         lblEstadoAsistencia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblEstadoAsistencia.setText("Asistencia actual:   |   Estado: ");
+        lblEstadoAsistencia.setText("Asistencia actual:  ");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("¿Estuvo Presente?");
@@ -59,21 +67,13 @@ public class FrameAsistencias extends javax.swing.JInternalFrame {
 
         rdbAusente.setText("Ausente");
 
+        lblEstadoAsistencia1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblEstadoAsistencia1.setText("Estado:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(209, 209, 209)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(rdbPresente)
-                            .addGap(37, 37, 37)
-                            .addComponent(rdbAusente))
-                        .addComponent(lblEstadoAsistencia, javax.swing.GroupLayout.Alignment.TRAILING)))
-                .addContainerGap(188, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,6 +83,26 @@ public class FrameAsistencias extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(cmbMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(213, 213, 213))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(209, 209, 209)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rdbPresente)
+                            .addComponent(lblEstadoAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(rdbAusente))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SituacionActual1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addGap(22, 22, 22)
+                .addComponent(lblEstadoAsistencia1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Estado, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,37 +118,56 @@ public class FrameAsistencias extends javax.swing.JInternalFrame {
                     .addComponent(rdbAusente)
                     .addComponent(rdbPresente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(lblEstadoAsistencia)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Estado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblEstadoAsistencia)
+                        .addComponent(lblEstadoAsistencia1))
+                    .addComponent(SituacionActual1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(17, 17, 17))
         );
 
         btnVolver.setText("Volver al Inicio");
 
+        btnResgistrar.setBackground(new java.awt.Color(107, 79, 163));
+        btnResgistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnResgistrar.setText("Registrar Asistencia");
 
-        jMenu1.setText("Menu");
+        jMenuBar2.setBackground(new java.awt.Color(200, 216, 240));
 
-        jMenu2.setText("Mi Perfil");
-        jMenu1.add(jMenu2);
+        jMenu10.setText("Menu");
 
-        jMenu3.setText("Gestion de Materias");
-        jMenu1.add(jMenu3);
+        ItemPerfil.setText("Mi Perfil");
+        jMenu10.add(ItemPerfil);
 
-        jMenu4.setText("Registrar Asistencia");
-        jMenu1.add(jMenu4);
+        ItemAsistencia.setText("Registrar Asistencia");
+        jMenu10.add(ItemAsistencia);
 
-        jMenu5.setText("Registrar Calificacion");
-        jMenu1.add(jMenu5);
+        ItemGestionM.setText("Gestion de Materias");
+        jMenu10.add(ItemGestionM);
 
-        jMenu6.setText("Reportes Academicos ");
-        jMenu1.add(jMenu6);
+        ItemCalificacion.setText("Registrar Calificacion");
+        jMenu10.add(ItemCalificacion);
 
-        jMenu7.setText("Salir ");
-        jMenu1.add(jMenu7);
+        Reportes.setText("Reportes Academicos");
 
-        jMenuBar1.add(jMenu1);
+        ItemSitGeneral.setText("Situacion General");
+        Reportes.add(ItemSitGeneral);
 
-        setJMenuBar(jMenuBar1);
+        ItemMatRiesgo.setText("Materias en Riesgo");
+        Reportes.add(ItemMatRiesgo);
+
+        ItemMatAprobadas.setText("Materias Aprobadas");
+        Reportes.add(ItemMatAprobadas);
+
+        jMenu10.add(Reportes);
+
+        ItemSalir.setText("Salir");
+        jMenu10.add(ItemSalir);
+
+        jMenuBar2.add(jMenu10);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,13 +176,13 @@ public class FrameAsistencias extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(85, 85, 85)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnResgistrar)
-                .addGap(135, 135, 135)
+                .addGap(41, 41, 41)
                 .addComponent(btnVolver)
-                .addGap(223, 223, 223))
+                .addGap(271, 271, 271))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,21 +201,27 @@ public class FrameAsistencias extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Estado;
+    private javax.swing.JMenuItem ItemAsistencia;
+    private javax.swing.JMenuItem ItemCalificacion;
+    private javax.swing.JMenuItem ItemGestionM;
+    private javax.swing.JMenuItem ItemMatAprobadas;
+    private javax.swing.JMenuItem ItemMatRiesgo;
+    private javax.swing.JMenuItem ItemPerfil;
+    private javax.swing.JMenuItem ItemSalir;
+    private javax.swing.JMenuItem ItemSitGeneral;
+    private javax.swing.JMenu Reportes;
+    private javax.swing.JLabel SituacionActual1;
     private javax.swing.JButton btnResgistrar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cmbMaterias;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblEstadoAsistencia;
+    private javax.swing.JLabel lblEstadoAsistencia1;
     private javax.swing.JRadioButton rdbAusente;
     private javax.swing.JRadioButton rdbPresente;
     // End of variables declaration//GEN-END:variables
