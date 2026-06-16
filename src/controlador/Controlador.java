@@ -102,7 +102,41 @@ public class Controlador {
 
         return reporte;
     }
-    
+    public String generarReporteAprobadas() {
+    ArrayList<InscripcionMateria> ap = estudiante.getMateriasAprobadas();
+
+    if (ap.isEmpty()) {
+        return "No hay materias aprobadas aún.";
+    }
+
+    StringBuilder sb = new StringBuilder("=== MATERIAS APROBADAS ===\n\n");
+
+    double max = 0;
+    double min = 10;
+    double suma = 0;
+
+    for (InscripcionMateria i : ap) {
+        double n = i.getNota();
+
+        sb.append("- ")
+          .append(i.getMateria().getNombre())
+          .append(" | Nota: ")
+          .append(String.format("%.2f", n))
+          .append("\n");
+
+        if (n > max) max = n;
+        if (n < min) min = n;
+        suma += n;
+    }
+
+        sb.append("\n--------------------------");
+        sb.append("\nMáxima: ").append(String.format("%.2f", max));
+        sb.append(" | Mínima: ").append(String.format("%.2f", min));
+        sb.append(" | Promedio: ").append(String.format("%.2f", suma / ap.size()));
+
+        return sb.toString();
+    }
+
 }
    
 
