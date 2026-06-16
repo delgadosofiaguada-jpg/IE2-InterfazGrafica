@@ -47,7 +47,13 @@ public class FrameMateriasAprobadas extends javax.swing.JInternalFrame {
             String.format("%.2f", i.getNota())
         });
     }
-
+    jTable1.revalidate();
+    jTable1.repaint();
+    if (m.getRowCount() == 0) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "No hay materias aprobadas aún.\n(Se requiere condición Regular y nota ≥ 6)",
+            "Sin resultados", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
     ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
     ItemGestionM.addActionListener(e -> abrirFrame(new FrameGestionMaterias(controlador), 900, 550, 50, 30));
     ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
