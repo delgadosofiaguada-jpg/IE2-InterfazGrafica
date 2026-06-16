@@ -5,6 +5,7 @@
 package controlador;
 
 import dao.InscripcionDAO;
+import java.util.ArrayList;
 import modelo.Estudiante;
 import modelo.InscripcionMateria;
 import modelo.Materia;
@@ -16,6 +17,7 @@ import modelo.Materia;
 public class Controlador {
     private Estudiante estudiante;
     private InscripcionDAO dao;
+   
             
    public Controlador(){
        
@@ -100,6 +102,7 @@ public class Controlador {
 
         return reporte;
     }
+    
 }
    
 
