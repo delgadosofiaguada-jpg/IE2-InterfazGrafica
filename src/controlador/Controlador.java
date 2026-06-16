@@ -136,6 +136,31 @@ public class Controlador {
 
         return sb.toString();
     }
+    public String generarReporteEnRiesgo() {
+
+        ArrayList<InscripcionMateria> r =
+            estudiante.getMateriasCriticasOrdenadas();
+
+        if (r.isEmpty())
+            return "No hay materias en riesgo actualmente.";
+
+        StringBuilder sb =
+            new StringBuilder("=== MATERIAS EN RIESGO (75%-85%) ===\n\n");
+
+        sb.append(String.format("%-22s %s\n",
+            "Materia",
+            "Asistencia"));
+
+        sb.append("------------------------------\n");
+
+        for (InscripcionMateria i : r) {
+            sb.append(String.format("%-22s %.1f%%\n",
+                i.getMateria().getNombre(),
+                i.getPorcentajeAsistencia()));
+        }
+
+        return sb.toString();
+    }
 
 }
    
