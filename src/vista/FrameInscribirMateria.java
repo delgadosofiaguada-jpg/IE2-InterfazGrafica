@@ -191,6 +191,52 @@ public class FrameInscribirMateria extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoActionPerformed
 
+    private controlador.Controlador controlador;
+
+    public FrameInscribirMateria(controlador.Controlador controlador) {
+        initComponents();
+        this.controlador = controlador;
+        setBackground(new java.awt.Color(200, 216, 240));
+        getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+
+        btnInscripcion.addActionListener(e -> {
+            try {
+                controlador.inscribirMateria(
+                    txtNomMateria.getText().trim(),
+                    txtCodigo.getText().trim(),
+                    Integer.parseInt(txtCuatri.getText().trim()),
+                    Integer.parseInt(txtAño.getText().trim()));
+                javax.swing.JOptionPane.showMessageDialog(this, "Materia inscripta correctamente.");
+                txtNomMateria.setText(""); txtCodigo.setText("");
+                txtCuatri.setText(""); txtAño.setText("");
+            } catch (NumberFormatException ex) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Cuatrimestre y Año deben ser números.");
+            } catch (IllegalArgumentException ex) {
+                javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage(),
+                    "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+}
+        });
+
+        btnCancelar.addActionListener(e -> {
+            txtNomMateria.setText(""); txtCodigo.setText("");
+            txtCuatri.setText(""); txtAño.setText("");
+        });
+
+        ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
+        ItemGestionM.addActionListener(e -> abrirFrame(new FrameGestionMaterias(controlador), 900, 550, 50, 30));
+        ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
+        ItemCalificacion.addActionListener(e -> abrirFrame(new FrameRegistrarCalificacion(controlador), 650, 400, 150, 80));
+        ItemSitGeneral.addActionListener(e -> abrirFrame(new frameSituacionGeneral(controlador), 750, 500, 100, 50));
+        ItemMatRiesgo.addActionListener(e -> abrirFrame(new FrameMateriasEnRiesgo(controlador), 550, 400, 150, 80));
+        ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
+        ItemSalir.addActionListener(e -> System.exit(0));
+    }
+
+    private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
+        frame.setSize(w, h); frame.setLocation(x, y);
+        this.getDesktopPane().add(frame);
+        frame.setVisible(true); this.dispose();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ItemAsistencia;
