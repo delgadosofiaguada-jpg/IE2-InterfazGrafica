@@ -31,6 +31,51 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
         MateriaRiesgo.setVisible(false); // ocultar el label viejo
 
     }
+    private controlador.Controlador controlador;
+
+    public FrameMateriasEnRiesgo(controlador.Controlador controlador) {
+        initComponents();
+        this.controlador = controlador;
+        setBackground(new java.awt.Color(200, 216, 240));
+        getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+        listaRiesgo = new javax.swing.JList<>();
+        listaRiesgo.setBackground(new java.awt.Color(46, 80, 140));
+        listaRiesgo.setForeground(java.awt.Color.WHITE);
+        listaRiesgo.setFont(new java.awt.Font("Segoe UI", 0, 13));
+        javax.swing.JScrollPane scrollRiesgo = new javax.swing.JScrollPane(listaRiesgo);
+        scrollRiesgo.setBorder(javax.swing.BorderFactory.createTitledBorder("Materias en riesgo (75%-85%)"));
+        scrollRiesgo.setBounds(MateriaRiesgo.getBounds());
+        getContentPane().add(scrollRiesgo);
+        MateriaRiesgo.setVisible(false);
+
+        javax.swing.DefaultListModel<String> modeloLista = new javax.swing.DefaultListModel<>();
+        for (modelo.InscripcionMateria i : controlador.getEstudiante().getMateriasCriticasOrdenadas())
+            modeloLista.addElement(i.getMateria().getNombre()
+                + "  —  " + String.format("%.1f%%", i.getPorcentajeAsistencia()));
+        listaRiesgo.setModel(modeloLista);
+
+        ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
+        ItemGestionM.addActionListener(e -> abrirFrame(new FrameGestionMaterias(controlador), 900, 550, 50, 30));
+        ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
+        ItemCalificacion.addActionListener(e -> abrirFrame(new FrameRegistrarCalificacion(controlador), 650, 400, 150, 80));
+        ItemSitGeneral.addActionListener(e -> abrirFrame(new frameSituacionGeneral(controlador), 750, 500, 100, 50));
+        ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
+        ItemSalir.addActionListener(e -> System.exit(0));
+        btnVolver.addActionListener(e -> {
+        FrameBienvenida f = new FrameBienvenida(controlador);
+        f.setSize(500, 300);
+        f.setLocation(300, 200);
+        this.getDesktopPane().add(f);
+        f.setVisible(true);
+        this.dispose();
+});
+    }
+
+    private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
+        frame.setSize(w, h); frame.setLocation(x, y);
+        this.getDesktopPane().add(frame);
+        frame.setVisible(true); this.dispose();
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
