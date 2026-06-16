@@ -111,7 +111,7 @@ public void setAnioIngreso(int anioIngreso) {
     //BONUS: MATERIAS EN RIESGO (75-85%) ordenadas ascendente por asistencia
     public ArrayList<InscripcionMateria> getMateriasCriticasOrdenadas() 
     {
-        ArrayList<InscripcionMateria> criticas = new ArrayList<>();
+        ArrayList<InscripcionMateria> criticas = getMateriasCriticas();
         criticas.sort(Comparator.comparingDouble(InscripcionMateria::getPorcentajeAsistencia));
         return criticas;
     }
