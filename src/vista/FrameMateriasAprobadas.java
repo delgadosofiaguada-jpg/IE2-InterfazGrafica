@@ -24,6 +24,44 @@ public class FrameMateriasAprobadas extends javax.swing.JInternalFrame {
         jTable1.getTableHeader().setForeground(java.awt.Color.WHITE);
 
     }
+    
+    private controlador.Controlador controlador;
+
+    public FrameMateriasAprobadas(controlador.Controlador controlador) {
+    initComponents();
+    this.controlador = controlador;
+    setBackground(new java.awt.Color(200, 216, 240));
+    getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+    jTable1.setBackground(new java.awt.Color(46, 80, 140));
+    jTable1.setForeground(java.awt.Color.WHITE);
+    jTable1.setSelectionBackground(new java.awt.Color(107, 79, 163));
+    jTable1.getTableHeader().setBackground(new java.awt.Color(27, 58, 107));
+    jTable1.getTableHeader().setForeground(java.awt.Color.WHITE);
+
+    javax.swing.table.DefaultTableModel m =
+        (javax.swing.table.DefaultTableModel) jTable1.getModel();
+    m.setRowCount(0);
+    for (modelo.InscripcionMateria i : controlador.getEstudiante().getMateriasAprobadas()) {
+        m.addRow(new Object[]{
+            i.getMateria().getNombre(),
+            String.format("%.2f", i.getNota())
+        });
+    }
+
+    ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
+    ItemGestionM.addActionListener(e -> abrirFrame(new FrameGestionMaterias(controlador), 900, 550, 50, 30));
+    ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
+    ItemCalificacion.addActionListener(e -> abrirFrame(new FrameRegistrarCalificacion(controlador), 650, 400, 150, 80));
+    ItemSitGeneral.addActionListener(e -> abrirFrame(new frameSituacionGeneral(controlador), 750, 500, 100, 50));
+    ItemMatRiesgo.addActionListener(e -> abrirFrame(new FrameMateriasEnRiesgo(controlador), 550, 400, 150, 80));
+    ItemSalir.addActionListener(e -> System.exit(0));
+}
+
+    private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
+    frame.setSize(w, h); frame.setLocation(x, y);
+    this.getDesktopPane().add(frame);
+    frame.setVisible(true); this.dispose();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
