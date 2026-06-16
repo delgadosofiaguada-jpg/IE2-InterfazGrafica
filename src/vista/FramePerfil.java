@@ -18,6 +18,40 @@ public class FramePerfil extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(200, 216, 240));
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
     }
+    
+    private controlador.Controlador controlador;
+
+    public FramePerfil(controlador.Controlador controlador) {
+    initComponents();
+    this.controlador = controlador;
+    setBackground(new java.awt.Color(200, 216, 240));
+    getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+
+    // Cargar datos del estudiante
+    getLblNombreValor().setText(controlador.getEstudiante().getNombre());
+    getLblLegajoValor().setText(controlador.getEstudiante().getLegajo());
+    getLblCarreraValor().setText(controlador.getEstudiante().getCarrera());
+    getLblingresoValor().setText(String.valueOf(controlador.getEstudiante().getAnioIngreso()));
+    getLblMateriasValor().setText(String.valueOf(controlador.getEstudiante().getMaterias().size()));
+    getLblPromedioValor().setText(String.format("%.2f", controlador.getEstudiante().getPromedioGeneral()));
+
+    // Navegación menú
+    ItemGestionM.addActionListener(e -> abrirFrame(new FrameGestionMaterias(controlador), 900, 550, 50, 30));
+    ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
+    ItemCalificacion.addActionListener(e -> abrirFrame(new FrameRegistrarCalificacion(controlador), 650, 400, 150, 80));
+    ItemSitGeneral.addActionListener(e -> abrirFrame(new frameSituacionGeneral(controlador), 750, 500, 100, 50));
+    ItemMatRiesgo.addActionListener(e -> abrirFrame(new FrameMateriasEnRiesgo(controlador), 550, 400, 150, 80));
+    ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
+    ItemSalir.addActionListener(e -> System.exit(0));
+}
+
+    private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
+    frame.setSize(w, h);
+    frame.setLocation(x, y);
+    this.getDesktopPane().add(frame);
+    frame.setVisible(true);
+    this.dispose();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
