@@ -9,8 +9,7 @@ package vista;
  * @author laram
  */
 public class FrameBienvenida extends javax.swing.JInternalFrame {
-
-    /**
+      /**
      * Creates new form FrameBienvenida
      */
     public FrameBienvenida() {
@@ -19,7 +18,22 @@ public class FrameBienvenida extends javax.swing.JInternalFrame {
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
         
     }
+    private controlador.Controlador controlador;
 
+public FrameBienvenida(controlador.Controlador controlador) {
+    initComponents();
+    this.controlador = controlador;
+    setBackground(new java.awt.Color(200, 216, 240));
+    getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+    btnIngresar.addActionListener(e -> {
+        FramePerfil f = new FramePerfil(controlador);
+        f.setSize(550, 420);
+        f.setLocation(100, 50);
+        this.getDesktopPane().add(f);
+        f.setVisible(true);
+        this.dispose();
+    });
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
