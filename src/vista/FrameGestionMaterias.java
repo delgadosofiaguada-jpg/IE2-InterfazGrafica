@@ -108,6 +108,8 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
             modeloLista.addElement(i.getMateria().getNombre()
                 + " - " + String.format("%.1f%%", i.getPorcentajeAsistencia()));
         getAlertas().setModel(modeloLista);
+        getTablaMaterias().revalidate();
+        getTablaMaterias().repaint();
     }
  
     private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
