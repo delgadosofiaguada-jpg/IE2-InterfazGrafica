@@ -1,7 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
-
+import java.util.Comparator;
 public class Estudiante extends PersonaAcademica implements Consultable
 {
     private String carrera;
@@ -86,4 +86,34 @@ public void setAnioIngreso(int anioIngreso) {
         System.out.println("Anio ingreso: " + getAnioIngreso());
         System.out.println("Promedio: " + String.format("%.2f", getPromedioGeneral()));
     }
+    
+    //BONUS:BUSCAR MATERIA POR NOMBRE
+    public ArrayList<InscripcionMateria> buscarporNombre(String nombre) 
+    {
+        ArrayList<InscripcionMateria> resultado = new ArrayList<>();
+        for (InscripcionMateria i : materias) {
+            if (i.getMateria().getNombre().toLowerCase().contains(nombre.toLowerCase()))
+                resultado.add(i);
+        }
+        return resultado;
+    }
+    
+    //BONUS: LISTA MATERIAS APROBADAS(nota >= 6 Y condicion Regular)
+    public ArrayList<InscripcionMateria> getMateriasAprobadas() 
+    {
+        ArrayList<InscripcionMateria> aprobadas = new ArrayList<>();
+        for (InscripcionMateria i : materias) {
+            if (i.estaAprobado()) aprobadas.add(i);
+        }
+        return aprobadas;
+    }
+    
+    //BONUS: MATERIAS EN RIESGO (75-85%) ordenadas ascendente por asistencia
+    public ArrayList<InscripcionMateria> getMateriasCriticasOrdenadas() 
+    {
+        ArrayList<InscripcionMateria> criticas = new ArrayList<>();
+        criticas.sort(Comparator.comparingDouble(InscripcionMateria::getPorcentajeAsistencia));
+        return criticas;
+    }
+
 }
