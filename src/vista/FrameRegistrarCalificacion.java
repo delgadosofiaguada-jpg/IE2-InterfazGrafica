@@ -192,6 +192,72 @@ public class FrameRegistrarCalificacion extends javax.swing.JInternalFrame {
     private void NotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NotaActionPerformed
+private controlador.Controlador controlador;
+
+public FrameRegistrarCalificacion(controlador.Controlador controlador) {
+    initComponents();
+    this.controlador = controlador;
+    setBackground(new java.awt.Color(200, 216, 240));
+    getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+    cargarComboMaterias();
+
+    btnRegistrar.addActionListener(e -> {
+        if (cmbMaterias.getSelectedItem() == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No hay materias inscriptas.");
+            return;
+        }
+        try {
+            String item = cmbMaterias.getSelectedItem().toString();
+            String codigo = item.substring(item.indexOf('(')+1, item.indexOf(')'));
+            double nota = Double.parseDouble(Nota.getText().trim());
+            controlador.registrarNota(codigo, nota);
+            modelo.InscripcionMateria insc = controlador.buscarMateria(codigo);
+            if (insc != null) {
+                NotasCargadasEN.setText("Notas: " + insc.getNotas().toString()
+                    + "  Promedio: " + String.format("%.2f", insc.getNota()));
+                Nota.setText("");
+            }
+        } catch (IllegalStateException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage(),
+                "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingresá un número entre 0 y 10.");
+        } catch (IllegalArgumentException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage(),
+                "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+}
+    });
+
+    ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
+    ItemGestionM.addActionListener(e -> abrirFrame(new FrameGestionMaterias(controlador), 900, 550, 50, 30));
+    ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
+    ItemSitGeneral.addActionListener(e -> abrirFrame(new frameSituacionGeneral(controlador), 750, 500, 100, 50));
+    ItemMatRiesgo.addActionListener(e -> abrirFrame(new FrameMateriasEnRiesgo(controlador), 550, 400, 150, 80));
+    ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
+    ItemSalir.addActionListener(e -> System.exit(0));
+    btnVolver.addActionListener(e -> {
+    FrameBienvenida f = new FrameBienvenida(controlador);
+    f.setSize(500, 300);
+    f.setLocation(300, 200);
+    this.getDesktopPane().add(f);
+    f.setVisible(true);
+    this.dispose();
+});
+}
+
+private void cargarComboMaterias() {
+    cmbMaterias.setModel(new javax.swing.DefaultComboBoxModel<>());
+    for (modelo.InscripcionMateria i : controlador.getEstudiante().getMaterias())
+        cmbMaterias.addItem(i.getMateria().getNombre()
+            + " (" + i.getMateria().getCodigo() + ")");
+}
+
+private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
+    frame.setSize(w, h); frame.setLocation(x, y);
+    this.getDesktopPane().add(frame);
+    frame.setVisible(true); this.dispose();
+    
+}
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
