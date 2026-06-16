@@ -43,10 +43,10 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         MateriaRiesgo = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu10 = new javax.swing.JMenu();
         ItemPerfil = new javax.swing.JMenuItem();
@@ -59,9 +59,6 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
         ItemMatAprobadas = new javax.swing.JMenuItem();
         ItemSalir = new javax.swing.JMenuItem();
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Materias en Riesgo");
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Asistencias entre el 75% y 85%");
 
@@ -71,6 +68,10 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
         btnVolver.setBackground(new java.awt.Color(107, 79, 163));
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver al inicio ");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(107, 79, 163));
+        jLabel3.setText("Materias en Riesgo");
 
         jMenuBar2.setBackground(new java.awt.Color(200, 216, 240));
 
@@ -115,9 +116,6 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(204, 204, 204)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(190, 190, 190)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(MateriaRiesgo, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
@@ -126,19 +124,22 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
                         .addGap(229, 229, 229)
                         .addComponent(btnVolver)))
                 .addContainerGap(220, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel2)
                 .addGap(48, 48, 48)
                 .addComponent(MateriaRiesgo, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnVolver)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         pack();
@@ -157,8 +158,8 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel MateriaRiesgo;
     private javax.swing.JMenu Reportes;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenuBar jMenuBar2;
     // End of variables declaration//GEN-END:variables

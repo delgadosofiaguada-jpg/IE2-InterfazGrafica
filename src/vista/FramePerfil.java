@@ -43,6 +43,7 @@ public class FramePerfil extends javax.swing.JInternalFrame {
         lblMateriasValor = new javax.swing.JLabel();
         lblPromedioValor = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu10 = new javax.swing.JMenu();
         ItemPerfil = new javax.swing.JMenuItem();
@@ -132,6 +133,10 @@ public class FramePerfil extends javax.swing.JInternalFrame {
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver al Inicio");
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(107, 79, 163));
+        jLabel8.setText("Mi Perfil");
+
         jMenuBar2.setBackground(new java.awt.Color(200, 216, 240));
 
         jMenu10.setText("Menu");
@@ -176,7 +181,10 @@ public class FramePerfil extends javax.swing.JInternalFrame {
                 .addGap(0, 295, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnVolver)
-                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel8))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
@@ -184,7 +192,9 @@ public class FramePerfil extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -214,6 +224,7 @@ public class FramePerfil extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;

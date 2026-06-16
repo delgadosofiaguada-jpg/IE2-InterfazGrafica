@@ -1,5 +1,5 @@
 import vista.VistaPrincipalFrame;
-import vista.FrameMateriasAprobadas;
+import vista.FrameAsistencias;
 import javax.swing.SwingUtilities;
 
 public class Main {
@@ -10,7 +10,7 @@ public class Main {
             ventana.setLocationRelativeTo(null);
             ventana.setVisible(true);
 
-            FrameMateriasAprobadas bienvenida = new FrameMateriasAprobadas();
+            FrameAsistencias bienvenida = new FrameAsistencias();
             ventana.getDesktop().add(bienvenida);
             bienvenida.setSize(500, 300);
             bienvenida.setLocation(300, 200);

@@ -50,6 +50,7 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         btnBaja = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         btnInscribirse = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu10 = new javax.swing.JMenu();
         ItemPerfil = new javax.swing.JMenuItem();
@@ -95,6 +96,10 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         btnInscribirse.setBackground(new java.awt.Color(107, 79, 163));
         btnInscribirse.setForeground(new java.awt.Color(255, 255, 255));
         btnInscribirse.setText("Inscribirse a la Materia");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(107, 79, 163));
+        jLabel2.setText("Gestion de Materias");
 
         jMenuBar2.setBackground(new java.awt.Color(200, 216, 240));
 
@@ -148,13 +153,18 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
                         .addComponent(btnInscribirse))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(136, 136, 136)
-                        .addComponent(btnVolver)))
+                        .addComponent(btnVolver))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(314, 314, 314)
+                        .addComponent(jLabel2)))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -162,7 +172,7 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
                     .addComponent(btnInscribirse))
                 .addGap(41, 41, 41)
                 .addComponent(btnVolver)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,6 +194,7 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBaja;
     private javax.swing.JButton btnInscribirse;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
