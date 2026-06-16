@@ -183,4 +183,8 @@ public class frameSituacionGeneral extends javax.swing.JInternalFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+public javax.swing.JLabel getNombreAlumno() { return NombreAlumno; }
+public javax.swing.JTable getTablaMaterias() { return TablaMaterias; }
+public javax.swing.JLabel getPromedioGeneral() { return PromedioGeneral; }
+
 }

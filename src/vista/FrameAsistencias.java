@@ -17,6 +17,13 @@ public class FrameAsistencias extends javax.swing.JInternalFrame {
         initComponents();
         setBackground(new java.awt.Color(200, 216, 240));
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+        javax.swing.ButtonGroup grupoAsistencia = new javax.swing.ButtonGroup();
+        grupoAsistencia.add(rdbPresente);
+        grupoAsistencia.add(rdbAusente);
+        rdbPresente.setSelected(true); // por defecto: Presente seleccionado
+        cmbMaterias.setModel(new javax.swing.DefaultComboBoxModel<>());
+
+
     }
 
     /**
@@ -130,9 +137,8 @@ public class FrameAsistencias extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Estado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblEstadoAsistencia)
-                        .addComponent(lblEstadoAsistencia1))
+                    .addComponent(lblEstadoAsistencia1)
+                    .addComponent(lblEstadoAsistencia)
                     .addComponent(SituacionActual1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(17, 17, 17))
         );

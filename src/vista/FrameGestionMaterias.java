@@ -202,4 +202,9 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     // End of variables declaration//GEN-END:variables
+public javax.swing.JTable getTablaMaterias() { return TablaMaterias; }
+public javax.swing.JList<String> getAlertas() { return Alertas; }
+public javax.swing.JButton getBtnBaja() { return btnBaja; }
+public javax.swing.JButton getBtnInscribirse() { return btnInscribirse; }
+
 }

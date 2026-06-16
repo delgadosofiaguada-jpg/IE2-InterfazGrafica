@@ -17,6 +17,7 @@ public class FrameRegistrarCalificacion extends javax.swing.JInternalFrame {
         initComponents();
         setBackground(new java.awt.Color(200, 216, 240));
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+        cmbMaterias.setModel(new javax.swing.DefaultComboBoxModel<>());
 
     }
 

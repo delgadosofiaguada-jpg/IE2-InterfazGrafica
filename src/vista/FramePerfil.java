@@ -235,4 +235,12 @@ public class FramePerfil extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblPromedioValor;
     private javax.swing.JLabel lblingresoValor;
     // End of variables declaration//GEN-END:variables
+// Acceso público para Leandro (cargar datos desde Controlador)
+public javax.swing.JLabel getLblNombreValor() { return lblNombreValor; }
+public javax.swing.JLabel getLblLegajoValor() { return lblLegajoValor; }
+public javax.swing.JLabel getLblCarreraValor() { return lblCarreraValor; }
+public javax.swing.JLabel getLblingresoValor() { return lblingresoValor; }
+public javax.swing.JLabel getLblMateriasValor() { return lblMateriasValor; }
+public javax.swing.JLabel getLblPromedioValor() { return lblPromedioValor; }
+
 }
