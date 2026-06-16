@@ -26,48 +26,49 @@ public class frameSituacionGeneral extends javax.swing.JInternalFrame {
 
     }
     
-    private controlador.Controlador controlador;
+        private controlador.Controlador controlador;
 
-    public frameSituacionGeneral(controlador.Controlador controlador) {
-    initComponents();
-    this.controlador = controlador;
-    setBackground(new java.awt.Color(200, 216, 240));
-    getContentPane().setBackground(new java.awt.Color(200, 216, 240));
-    TablaMaterias.setBackground(new java.awt.Color(46, 80, 140));
-    TablaMaterias.setSelectionBackground(new java.awt.Color(107, 79, 163));
-    TablaMaterias.getTableHeader().setBackground(new java.awt.Color(27, 58, 107));
-    TablaMaterias.getTableHeader().setForeground(java.awt.Color.WHITE);
+     public frameSituacionGeneral(controlador.Controlador controlador) {
+         initComponents();
+         this.controlador = controlador;
+         setBackground(new java.awt.Color(200, 216, 240));
+         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+         TablaMaterias.setBackground(new java.awt.Color(46, 80, 140));
+         TablaMaterias.setSelectionBackground(new java.awt.Color(107, 79, 163));
+         TablaMaterias.getTableHeader().setBackground(new java.awt.Color(27, 58, 107));
+         TablaMaterias.getTableHeader().setForeground(java.awt.Color.WHITE);
 
-    getNombreAlumno().setText(controlador.getEstudiante().getNombre());
-    getPromedioGeneral().setText(String.format("%.2f", controlador.getEstudiante().getPromedioGeneral()));
+         getNombreAlumno().setText(controlador.getEstudiante().getNombre());
+         getPromedioGeneral().setText(String.format("%.2f", controlador.getEstudiante().getPromedioGeneral()));
 
-    javax.swing.table.DefaultTableModel m =
-        (javax.swing.table.DefaultTableModel) getTablaMaterias().getModel();
-    m.setRowCount(0);
-    for (modelo.InscripcionMateria i : controlador.getEstudiante().getMaterias()) {
-        m.addRow(new Object[]{
-            i.getMateria().getNombre(), i.getMateria().getCodigo(),
-            i.getMateria().getCuatrimestre(), i.getMateria().getAnio(),
-            i.getCondicion(),
-            String.format("%.1f%%", i.getPorcentajeAsistencia()),
-            String.format("%.2f", i.getNota())
-        });
-    }
+         javax.swing.table.DefaultTableModel m =
+             (javax.swing.table.DefaultTableModel) getTablaMaterias().getModel();
+         m.setRowCount(0);
+         for (modelo.InscripcionMateria i : controlador.getEstudiante().getMaterias()) {
+             m.addRow(new Object[]{
+                 i.getMateria().getNombre(), i.getMateria().getCodigo(),
+                 i.getMateria().getCuatrimestre(), i.getMateria().getAnio(),
+                 i.getCondicion(),
+                 String.format("%.1f%%", i.getPorcentajeAsistencia()),
+                 String.format("%.2f", i.getNota())
+             });
+         }
 
-    ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
-    ItemGestionM.addActionListener(e -> abrirFrame(new FrameGestionMaterias(controlador), 900, 550, 50, 30));
-    ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
-    ItemCalificacion.addActionListener(e -> abrirFrame(new FrameRegistrarCalificacion(controlador), 650, 400, 150, 80));
-    ItemMatRiesgo.addActionListener(e -> abrirFrame(new FrameMateriasEnRiesgo(controlador), 550, 400, 150, 80));
-    ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
-    ItemSalir.addActionListener(e -> System.exit(0));
+         ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
+         ItemGestionM.addActionListener(e -> abrirFrame(new FrameGestionMaterias(controlador), 900, 550, 50, 30));
+         ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
+         ItemCalificacion.addActionListener(e -> abrirFrame(new FrameRegistrarCalificacion(controlador), 650, 400, 150, 80));
+         ItemMatRiesgo.addActionListener(e -> abrirFrame(new FrameMateriasEnRiesgo(controlador), 550, 400, 150, 80));
+         ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
+         ItemSalir.addActionListener(e -> System.exit(0));
+     }
+
+     private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
+         frame.setSize(w, h); frame.setLocation(x, y);
+         this.getDesktopPane().add(frame);
+         frame.setVisible(true); this.dispose();
 }
 
-    private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
-    frame.setSize(w, h); frame.setLocation(x, y);
-    this.getDesktopPane().add(frame);
-    frame.setVisible(true); this.dispose();
-}
 
     /**
      * This method is called from within the constructor to initialize the form.
