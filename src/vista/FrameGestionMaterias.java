@@ -17,6 +17,20 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         initComponents();
         setBackground(new java.awt.Color(200, 216, 240));
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+         // Fix scroll anidado — sacar la tabla del scroll doble
+        jScrollPane4.setViewportView(TablaMaterias);
+
+        // Colores tabla
+        TablaMaterias.setBackground(new java.awt.Color(46, 80, 140));
+        TablaMaterias.setForeground(java.awt.Color.WHITE);
+        TablaMaterias.setSelectionBackground(new java.awt.Color(107, 79, 163));
+        TablaMaterias.getTableHeader().setBackground(new java.awt.Color(27, 58, 107));
+        TablaMaterias.getTableHeader().setForeground(java.awt.Color.WHITE);
+
+        // Limpiar items hardcodeados de la lista
+        Alertas.setModel(new javax.swing.DefaultListModel<>());
+        Alertas.setBackground(new java.awt.Color(46, 80, 140));
+        Alertas.setForeground(java.awt.Color.WHITE);
     }
 
     /**

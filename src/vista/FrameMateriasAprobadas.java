@@ -17,6 +17,11 @@ public class FrameMateriasAprobadas extends javax.swing.JInternalFrame {
         initComponents();
         setBackground(new java.awt.Color(200, 216, 240));
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+        jTable1.setBackground(new java.awt.Color(46, 80, 140));
+        jTable1.setForeground(java.awt.Color.WHITE);
+        jTable1.setSelectionBackground(new java.awt.Color(107, 79, 163));
+        jTable1.getTableHeader().setBackground(new java.awt.Color(27, 58, 107));
+        jTable1.getTableHeader().setForeground(java.awt.Color.WHITE);
 
     }
 

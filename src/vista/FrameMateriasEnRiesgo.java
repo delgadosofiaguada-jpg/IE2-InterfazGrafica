@@ -17,8 +17,22 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
        initComponents();
         setBackground(new java.awt.Color(200, 216, 240));
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+        // Reemplazar MateriaRiesgo (JLabel) por un JList real
+        listaRiesgo = new javax.swing.JList<>();
+        listaRiesgo.setBackground(new java.awt.Color(46, 80, 140));
+        listaRiesgo.setForeground(java.awt.Color.WHITE);
+        listaRiesgo.setFont(new java.awt.Font("Segoe UI", 0, 13));
+
+        javax.swing.JScrollPane scrollRiesgo = new javax.swing.JScrollPane(listaRiesgo);
+        scrollRiesgo.setBorder(javax.swing.BorderFactory.createTitledBorder("Materias en riesgo (75%-85%)"));
+        scrollRiesgo.setPreferredSize(new java.awt.Dimension(400, 150));
+
+        getContentPane().add(scrollRiesgo, java.awt.BorderLayout.CENTER);
+        
+        
 
     }
+    private javax.swing.JList<String> listaRiesgo;
 
     /**
      * This method is called from within the constructor to initialize the form.
