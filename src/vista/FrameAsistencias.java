@@ -25,7 +25,71 @@ public class FrameAsistencias extends javax.swing.JInternalFrame {
 
 
     }
+    private controlador.Controlador controlador;
 
+public FrameAsistencias(controlador.Controlador controlador) {
+    initComponents();
+    this.controlador = controlador;
+    setBackground(new java.awt.Color(200, 216, 240));
+    getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+    javax.swing.ButtonGroup grupoAsistencia = new javax.swing.ButtonGroup();
+    grupoAsistencia.add(rdbPresente);
+    grupoAsistencia.add(rdbAusente);
+    rdbPresente.setSelected(true);
+    cargarComboMaterias();
+
+    btnResgistrar.addActionListener(e -> {
+        if (cmbMaterias.getSelectedItem() == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No hay materias inscriptas.");
+            return;
+        }
+        String item = cmbMaterias.getSelectedItem().toString();
+        String codigo = item.substring(item.indexOf('(')+1, item.indexOf(')'));
+        controlador.registrarAsistencia(codigo, rdbPresente.isSelected());
+        modelo.InscripcionMateria insc = controlador.buscarMateria(codigo);
+        if (insc != null) {
+            double porc = insc.getPorcentajeAsistencia();
+            lblEstadoAsistencia.setText(insc.getMateria().getNombre()
+                + ": " + String.format("%.1f%%", porc)
+                + " — Estado: " + insc.getCondicion());
+            if (porc < 75)
+                javax.swing.JOptionPane.showMessageDialog(this,
+                    "⚠ '" + insc.getMateria().getNombre() + "' bajó al "
+                    + String.format("%.1f%%", porc) + ".\nEl alumno quedó LIBRE.",
+                    "Alerta de Asistencia", javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
+    });
+
+    ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
+    ItemGestionM.addActionListener(e -> abrirFrame(new FrameGestionMaterias(controlador), 900, 550, 50, 30));
+    ItemCalificacion.addActionListener(e -> abrirFrame(new FrameRegistrarCalificacion(controlador), 650, 400, 150, 80));
+    ItemSitGeneral.addActionListener(e -> abrirFrame(new frameSituacionGeneral(controlador), 750, 500, 100, 50));
+    ItemMatRiesgo.addActionListener(e -> abrirFrame(new FrameMateriasEnRiesgo(controlador), 550, 400, 150, 80));
+    ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
+    ItemSalir.addActionListener(e -> System.exit(0));
+    
+    btnVolver.addActionListener(e -> {
+    FrameBienvenida f = new FrameBienvenida(controlador);
+    f.setSize(500, 300);
+    f.setLocation(300, 200);
+    this.getDesktopPane().add(f);
+    f.setVisible(true);
+    this.dispose();
+});
+}
+
+    private void cargarComboMaterias() {
+        cmbMaterias.setModel(new javax.swing.DefaultComboBoxModel<>());
+        for (modelo.InscripcionMateria i : controlador.getEstudiante().getMaterias())
+            cmbMaterias.addItem(i.getMateria().getNombre()
+                + " (" + i.getMateria().getCodigo() + ")");
+    }
+
+    private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
+        frame.setSize(w, h); frame.setLocation(x, y);
+        this.getDesktopPane().add(frame);
+        frame.setVisible(true); this.dispose();
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
