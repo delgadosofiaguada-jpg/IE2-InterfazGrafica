@@ -14,26 +14,24 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
      * Creates new form FrameMateriasEnRiesgo
      */
     public FrameMateriasEnRiesgo() {
-       initComponents();
+        initComponents();
         setBackground(new java.awt.Color(200, 216, 240));
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
         // Reemplazar MateriaRiesgo (JLabel) por un JList real
+        // Crear JList programáticamente (reemplaza el JLabel MateriaRiesgo)
         listaRiesgo = new javax.swing.JList<>();
         listaRiesgo.setBackground(new java.awt.Color(46, 80, 140));
         listaRiesgo.setForeground(java.awt.Color.WHITE);
         listaRiesgo.setFont(new java.awt.Font("Segoe UI", 0, 13));
-
         javax.swing.JScrollPane scrollRiesgo = new javax.swing.JScrollPane(listaRiesgo);
-        scrollRiesgo.setBorder(javax.swing.BorderFactory.createTitledBorder("Materias en riesgo (75%-85%)"));
-        scrollRiesgo.setPreferredSize(new java.awt.Dimension(400, 150));
-
-        getContentPane().add(scrollRiesgo, java.awt.BorderLayout.CENTER);
-        
-        
+        scrollRiesgo.setBorder(javax.swing.BorderFactory.createTitledBorder(
+            "Materias en riesgo (75%-85%)"));
+        scrollRiesgo.setBounds(MateriaRiesgo.getBounds()); // ocupa el mismo lugar
+        getContentPane().add(scrollRiesgo);
+        MateriaRiesgo.setVisible(false); // ocultar el label viejo
 
     }
-    private javax.swing.JList<String> listaRiesgo;
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -163,4 +161,6 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenuBar jMenuBar2;
     // End of variables declaration//GEN-END:variables
+    public javax.swing.JList<String> listaRiesgo;
 }
+
