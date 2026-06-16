@@ -160,6 +160,31 @@ public class Controlador {
         }
 
         return sb.toString();
+    } 
+    public ArrayList<InscripcionMateria> buscarMateriaBonus(String termino) {
+
+        ArrayList<InscripcionMateria> resultado =
+            new ArrayList<>();
+
+        for (InscripcionMateria i : estudiante.getMaterias()) {
+
+            boolean matchNombre =
+                i.getMateria()
+                 .getNombre()
+                 .toLowerCase()
+                 .contains(termino.toLowerCase());
+
+            boolean matchCodigo =
+                i.getMateria()
+                 .getCodigo()
+                 .toLowerCase()
+                 .contains(termino.toLowerCase());
+            
+        if (matchNombre || matchCodigo)
+            resultado.add(i);
+    }
+
+        return resultado;
     }
 
 }
