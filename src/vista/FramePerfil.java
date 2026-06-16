@@ -43,6 +43,14 @@ public class FramePerfil extends javax.swing.JInternalFrame {
     ItemMatRiesgo.addActionListener(e -> abrirFrame(new FrameMateriasEnRiesgo(controlador), 550, 400, 150, 80));
     ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
     ItemSalir.addActionListener(e -> System.exit(0));
+    btnVolver.addActionListener(e -> {
+    FrameBienvenida f = new FrameBienvenida(controlador);
+    f.setSize(500, 300);
+    f.setLocation(300, 200);
+    this.getDesktopPane().add(f);
+    f.setVisible(true);
+    this.dispose();
+});
 }
 
     private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
