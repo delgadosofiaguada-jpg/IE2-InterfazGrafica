@@ -34,6 +34,90 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
 
     }
 
+    
+    private controlador.Controlador controlador;
+ 
+    public FrameGestionMaterias(controlador.Controlador controlador) {
+        initComponents();
+        this.controlador = controlador;
+        setBackground(new java.awt.Color(200, 216, 240));
+        getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+        jScrollPane4.setViewportView(TablaMaterias);
+        TablaMaterias.setBackground(new java.awt.Color(46, 80, 140));
+        TablaMaterias.setSelectionBackground(new java.awt.Color(107, 79, 163));
+        TablaMaterias.getTableHeader().setBackground(new java.awt.Color(27, 58, 107));
+        TablaMaterias.getTableHeader().setForeground(java.awt.Color.WHITE);
+        Alertas.setModel(new javax.swing.DefaultListModel<>());
+        Alertas.setBackground(new java.awt.Color(46, 80, 140));
+        Alertas.setForeground(java.awt.Color.WHITE);
+        actualizarTabla();
+ 
+        getBtnBaja().addActionListener(e -> {
+            int fila = getTablaMaterias().getSelectedRow();
+            if (fila < 0) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Seleccioná una materia.");
+                return;
+            }
+            String nombre = getTablaMaterias().getValueAt(fila, 0).toString();
+            String codigo = getTablaMaterias().getValueAt(fila, 1).toString();
+            int conf = javax.swing.JOptionPane.showConfirmDialog(this,
+                "¿Confirmás la baja de '" + nombre + "' (" + codigo + ")?",
+                "Confirmar Baja", javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+            if (conf == javax.swing.JOptionPane.YES_OPTION) {
+                controlador.darDeBaja(codigo);
+                actualizarTabla();
+            }
+        });
+ 
+        getBtnInscribirse().addActionListener(e ->
+            abrirFrame(new FrameInscribirMateria(controlador), 600, 400, 150, 80));
+ 
+        ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
+        ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
+        ItemCalificacion.addActionListener(e -> abrirFrame(new FrameRegistrarCalificacion(controlador), 650, 400, 150, 80));
+        ItemSitGeneral.addActionListener(e -> abrirFrame(new frameSituacionGeneral(controlador), 750, 500, 100, 50));
+        ItemMatRiesgo.addActionListener(e -> abrirFrame(new FrameMateriasEnRiesgo(controlador), 550, 400, 150, 80));
+        ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
+        ItemSalir.addActionListener(e -> System.exit(0));
+        btnVolver.addActionListener(e -> {
+        FrameBienvenida f = new FrameBienvenida(controlador);
+        f.setSize(500, 300);
+        f.setLocation(300, 200);
+        this.getDesktopPane().add(f);
+        f.setVisible(true);
+        this.dispose();
+});
+    }
+ 
+    private void actualizarTabla() {
+        javax.swing.table.DefaultTableModel modelo =
+            (javax.swing.table.DefaultTableModel) getTablaMaterias().getModel();
+        modelo.setRowCount(0);
+        for (modelo.InscripcionMateria i : controlador.getEstudiante().getMaterias()) {
+            modelo.addRow(new Object[]{
+                i.getMateria().getNombre(), i.getMateria().getCodigo(),
+                i.getMateria().getCuatrimestre(), i.getMateria().getAnio(),
+                i.getCondicion(),
+                String.format("%.1f%%", i.getPorcentajeAsistencia()),
+                String.format("%.2f", i.getNota())
+            });
+        }
+        javax.swing.DefaultListModel<String> modeloLista = new javax.swing.DefaultListModel<>();
+        for (modelo.InscripcionMateria i : controlador.getEstudiante().getMateriasCriticas())
+            modeloLista.addElement(i.getMateria().getNombre()
+                + " - " + String.format("%.1f%%", i.getPorcentajeAsistencia()));
+        getAlertas().setModel(modeloLista);
+    }
+ 
+    private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
+        frame.setSize(w, h); frame.setLocation(x, y);
+        this.getDesktopPane().add(frame);
+        frame.setVisible(true); this.dispose();
+    }
+ 
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
