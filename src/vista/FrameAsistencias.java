@@ -50,8 +50,8 @@ public FrameAsistencias(controlador.Controlador controlador) {
         if (insc != null) {
             double porc = insc.getPorcentajeAsistencia();
             lblEstadoAsistencia.setText(insc.getMateria().getNombre()
-                + ": " + String.format("%.1f%%", porc)
-                + " — Estado: " + insc.getCondicion());
+                + ": " + String.format("%.1f%%", porc));
+                Estado.setText(insc.getCondicion());
             if (porc < 75)
                 javax.swing.JOptionPane.showMessageDialog(this,
                     "⚠ '" + insc.getMateria().getNombre() + "' bajó al "
@@ -68,14 +68,7 @@ public FrameAsistencias(controlador.Controlador controlador) {
     ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
     ItemSalir.addActionListener(e -> System.exit(0));
     
-    btnVolver.addActionListener(e -> {
-    FrameBienvenida f = new FrameBienvenida(controlador);
-    f.setSize(500, 300);
-    f.setLocation(300, 200);
-    this.getDesktopPane().add(f);
-    f.setVisible(true);
-    this.dispose();
-});
+    
 }
 
     private void cargarComboMaterias() {
