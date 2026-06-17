@@ -17,11 +17,6 @@ public class FrameAsistencias extends javax.swing.JInternalFrame {
         initComponents();
         setBackground(new java.awt.Color(200, 216, 240));
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
-        javax.swing.ButtonGroup grupoAsistencia = new javax.swing.ButtonGroup();
-        grupoAsistencia.add(rdbPresente);
-        grupoAsistencia.add(rdbAusente);
-        rdbPresente.setSelected(true); // por defecto: Presente seleccionado
-        cmbMaterias.setModel(new javax.swing.DefaultComboBoxModel<>());
 
 
     }
