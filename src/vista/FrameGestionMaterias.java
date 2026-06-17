@@ -9,33 +9,22 @@ package vista;
  * @author laram
  */
 public class FrameGestionMaterias extends javax.swing.JInternalFrame {
-
-    /**
-     * Creates new form FrameGestionMaterias
-     */
+ 
     public FrameGestionMaterias() {
         initComponents();
         setBackground(new java.awt.Color(200, 216, 240));
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
-
-        // Fix: sacar la tabla del scroll doble
         jScrollPane1.setViewportView(TablaMaterias);
         jScrollPane4.setViewportView(jScrollPane1);
-
-        // Colores de la tabla
         TablaMaterias.setBackground(new java.awt.Color(46, 80, 140));
         TablaMaterias.setSelectionBackground(new java.awt.Color(107, 79, 163));
         TablaMaterias.getTableHeader().setBackground(new java.awt.Color(27, 58, 107));
         TablaMaterias.getTableHeader().setForeground(java.awt.Color.WHITE);
-
-        // Limpiar items hardcodeados de la lista de alertas
         Alertas.setModel(new javax.swing.DefaultListModel<>());
         Alertas.setBackground(new java.awt.Color(46, 80, 140));
         Alertas.setForeground(java.awt.Color.WHITE);
-
     }
-
-    
+ 
     private controlador.Controlador controlador;
  
     public FrameGestionMaterias(controlador.Controlador controlador) {
@@ -52,21 +41,24 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         Alertas.setModel(new javax.swing.DefaultListModel<>());
         Alertas.setBackground(new java.awt.Color(46, 80, 140));
         Alertas.setForeground(java.awt.Color.WHITE);
-        actualizarTabla();
-        TablaMaterias.getColumnModel().getColumn(0).setPreferredWidth(120); // Nombre
-        TablaMaterias.getColumnModel().getColumn(1).setPreferredWidth(60);  // Codigo
-        TablaMaterias.getColumnModel().getColumn(2).setPreferredWidth(80);  // Cuatrimestre
-        TablaMaterias.getColumnModel().getColumn(3).setPreferredWidth(50);  // Año
-        TablaMaterias.getColumnModel().getColumn(4).setPreferredWidth(70);  // Condicion
-        TablaMaterias.getColumnModel().getColumn(5).setPreferredWidth(80);  // Asistencia
-        TablaMaterias.getColumnModel().getColumn(6).setPreferredWidth(70);  // Promedio
+ 
+        TablaMaterias.getColumnModel().getColumn(0).setPreferredWidth(120);
+        TablaMaterias.getColumnModel().getColumn(1).setPreferredWidth(60);
+        TablaMaterias.getColumnModel().getColumn(2).setPreferredWidth(80);
+        TablaMaterias.getColumnModel().getColumn(3).setPreferredWidth(50);
+        TablaMaterias.getColumnModel().getColumn(4).setPreferredWidth(70);
+        TablaMaterias.getColumnModel().getColumn(5).setPreferredWidth(80);
+        TablaMaterias.getColumnModel().getColumn(6).setPreferredWidth(70);
         TablaMaterias.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         TablaMaterias.setBorder(null);
-        
-        // Limpiar placeholder del Designer
+ 
+        // CardLayout (cumple consigna)
+        javax.swing.JPanel panelCards = new javax.swing.JPanel(new java.awt.CardLayout());
+        panelCards.setOpaque(false);
+        jPanel1.add(panelCards);
+ 
+        // Limpiar placeholder y conectar búsqueda
         txtBusqueda.setText("");
-
-        // Conectar búsqueda a los componentes que ya existen en el form
         btnBuscar.addActionListener(e -> {
             String termino = txtBusqueda.getText().trim();
             javax.swing.table.DefaultTableModel m =
@@ -96,39 +88,16 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
                 actualizarTabla();
             }
         });
-        // CardLayout sobre el panel de búsqueda (cumple consigna)
-        javax.swing.JPanel panelCards = new javax.swing.JPanel(new java.awt.CardLayout());
-        panelCards.setOpaque(false);
-        jPanel1.add(panelCards);
-        
-        
-        
-        btnBuscar.addActionListener(e -> {
-            String termino = txtBusqueda.getText().trim();
-            javax.swing.table.DefaultTableModel m =
-                (javax.swing.table.DefaultTableModel) getTablaMaterias().getModel();
-            if (termino.isEmpty()) { actualizarTabla(); return; }
-            m.setRowCount(0);
-            for (modelo.InscripcionMateria i : controlador.buscarMateriaBonus(termino))
-                m.addRow(new Object[]{
-                    i.getMateria().getNombre(), i.getMateria().getCodigo(),
-                    i.getMateria().getCuatrimestre(), i.getMateria().getAnio(),
-                    i.getCondicion(),
-                    String.format("%.1f%%", i.getPorcentajeAsistencia()),
-                    String.format("%.2f", i.getNota())
-                });
-        });
-
-        
-        
-        getBtnBaja().addActionListener(e -> {
-            int fila = getTablaMaterias().getSelectedRow();
+ 
+        // Dar de baja
+        btnBaja.addActionListener(e -> {
+            int fila = TablaMaterias.getSelectedRow();
             if (fila < 0) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Seleccioná una materia.");
                 return;
             }
-            String nombre = getTablaMaterias().getValueAt(fila, 0).toString();
-            String codigo = getTablaMaterias().getValueAt(fila, 1).toString();
+            String nombre = TablaMaterias.getValueAt(fila, 0).toString();
+            String codigo = TablaMaterias.getValueAt(fila, 1).toString();
             int conf = javax.swing.JOptionPane.showConfirmDialog(this,
                 "¿Confirmás la baja de '" + nombre + "' (" + codigo + ")?",
                 "Confirmar Baja", javax.swing.JOptionPane.YES_NO_OPTION,
@@ -139,9 +108,11 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
             }
         });
  
-        getBtnInscribirse().addActionListener(e ->
+        // Inscribirse
+        btnInscribirse.addActionListener(e ->
             abrirFrame(new FrameInscribirMateria(controlador), 600, 400, 150, 80));
  
+        // Menú
         ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
         ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
         ItemCalificacion.addActionListener(e -> abrirFrame(new FrameRegistrarCalificacion(controlador), 650, 400, 150, 80));
@@ -149,26 +120,33 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         ItemMatRiesgo.addActionListener(e -> abrirFrame(new FrameMateriasEnRiesgo(controlador), 550, 400, 150, 80));
         ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
         ItemSalir.addActionListener(e -> System.exit(0));
-       btnVolver.addActionListener(e -> {
-    FrameBienvenida f = new FrameBienvenida(controlador);
-    f.pack();
-    f.setLocation(
-        (this.getDesktopPane().getWidth() - f.getWidth()) / 2,
-        (this.getDesktopPane().getHeight() - f.getHeight()) / 2
-    );
-    this.getDesktopPane().add(f);
-    f.setVisible(true);
-    this.dispose();
-});
-       }
+ 
+        // Volver
+        btnVolver.addActionListener(e -> {
+            FrameBienvenida f = new FrameBienvenida(controlador);
+            f.pack();
+            f.setLocation(
+                (this.getDesktopPane().getWidth() - f.getWidth()) / 2,
+                (this.getDesktopPane().getHeight() - f.getHeight()) / 2
+            );
+            this.getDesktopPane().add(f);
+            f.setVisible(true);
+            this.dispose();
+        });
+ 
+        actualizarTabla();
+    }
+ 
     private void actualizarTabla() {
         javax.swing.table.DefaultTableModel modelo =
-            (javax.swing.table.DefaultTableModel) getTablaMaterias().getModel();
+            (javax.swing.table.DefaultTableModel) TablaMaterias.getModel();
         modelo.setRowCount(0);
         for (modelo.InscripcionMateria i : controlador.getEstudiante().getMaterias()) {
             modelo.addRow(new Object[]{
-                i.getMateria().getNombre(), i.getMateria().getCodigo(),
-                i.getMateria().getCuatrimestre(), i.getMateria().getAnio(),
+                i.getMateria().getNombre(),
+                i.getMateria().getCodigo(),
+                i.getMateria().getCuatrimestre(),
+                i.getMateria().getAnio(),
                 i.getCondicion(),
                 String.format("%.1f%%", i.getPorcentajeAsistencia()),
                 String.format("%.2f", i.getNota())
@@ -178,27 +156,26 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         for (modelo.InscripcionMateria i : controlador.getEstudiante().getMateriasCriticas())
             modeloLista.addElement(i.getMateria().getNombre()
                 + " - " + String.format("%.1f%%", i.getPorcentajeAsistencia()));
-        getAlertas().setModel(modeloLista);
-        getTablaMaterias().revalidate();
-        getTablaMaterias().repaint();
+        Alertas.setModel(modeloLista);
+        TablaMaterias.revalidate();
+        TablaMaterias.repaint();
         if (modelo.getRowCount() == 0) {
             javax.swing.JOptionPane.showMessageDialog(this,
-            "No hay materias inscriptas aún.",
-            "Sin materias", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-}
+                "No hay materias inscriptas aún.",
+                "Sin materias", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }
     }
  
     private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
-    frame.pack();
-    frame.setLocation(
-        (this.getDesktopPane().getWidth() - frame.getWidth()) / 2,
-        (this.getDesktopPane().getHeight() - frame.getHeight()) / 2
-    );
-    this.getDesktopPane().add(frame);
-    frame.setVisible(true);
-    this.dispose();
-}
- 
+        frame.pack();
+        frame.setLocation(
+            (this.getDesktopPane().getWidth() - frame.getWidth()) / 2,
+            (this.getDesktopPane().getHeight() - frame.getHeight()) / 2
+        );
+        this.getDesktopPane().add(frame);
+        frame.setVisible(true);
+        this.dispose();
+    }
 
     
     /**
@@ -413,9 +390,9 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField txtBusqueda;
     // End of variables declaration//GEN-END:variables
-public javax.swing.JTable getTablaMaterias() { return TablaMaterias; }
-public javax.swing.JList<String> getAlertas() { return Alertas; }
-public javax.swing.JButton getBtnBaja() { return btnBaja; }
-public javax.swing.JButton getBtnInscribirse() { return btnInscribirse; }
+    public javax.swing.JTable getTablaMaterias() { return TablaMaterias; }
+    public javax.swing.JList<String> getAlertas() { return Alertas; }
+    public javax.swing.JButton getBtnBaja() { return btnBaja; }
+    public javax.swing.JButton getBtnInscribirse() { return btnInscribirse; }
 
 }
