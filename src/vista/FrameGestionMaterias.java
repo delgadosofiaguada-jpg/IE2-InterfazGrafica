@@ -90,16 +90,18 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         ItemMatRiesgo.addActionListener(e -> abrirFrame(new FrameMateriasEnRiesgo(controlador), 550, 400, 150, 80));
         ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
         ItemSalir.addActionListener(e -> System.exit(0));
-        btnVolver.addActionListener(e -> {
-        FrameBienvenida f = new FrameBienvenida(controlador);
-        f.setSize(500, 300);
-        f.setLocation(300, 200);
-        this.getDesktopPane().add(f);
-        f.setVisible(true);
-        this.dispose();
+       btnVolver.addActionListener(e -> {
+    FrameBienvenida f = new FrameBienvenida(controlador);
+    f.pack();
+    f.setLocation(
+        (this.getDesktopPane().getWidth() - f.getWidth()) / 2,
+        (this.getDesktopPane().getHeight() - f.getHeight()) / 2
+    );
+    this.getDesktopPane().add(f);
+    f.setVisible(true);
+    this.dispose();
 });
-    }
- 
+       }
     private void actualizarTabla() {
         javax.swing.table.DefaultTableModel modelo =
             (javax.swing.table.DefaultTableModel) getTablaMaterias().getModel();

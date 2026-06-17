@@ -26,13 +26,8 @@ public FrameBienvenida(controlador.Controlador controlador) {
     setBackground(new java.awt.Color(200, 216, 240));
     getContentPane().setBackground(new java.awt.Color(200, 216, 240));
     btnIngresar.addActionListener(e -> {
-        FramePerfil f = new FramePerfil(controlador);
-        f.setSize(550, 420);
-        f.setLocation(100, 50);
-        this.getDesktopPane().add(f);
-        f.setVisible(true);
-        this.dispose();
-    });
+    abrirFrame(new FramePerfil(controlador), 0, 0, 0, 0);
+});
 }
 private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
     frame.pack();

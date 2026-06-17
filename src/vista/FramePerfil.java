@@ -44,11 +44,13 @@ public class FramePerfil extends javax.swing.JInternalFrame {
     ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
     ItemSalir.addActionListener(e -> System.exit(0));
     System.out.println("Constructor con controlador ejecutado - FramePerfil");
-    btnVolver.addActionListener(e -> 
-    {
+      btnVolver.addActionListener(e -> {
     FrameBienvenida f = new FrameBienvenida(controlador);
-    f.setSize(500, 300);
-    f.setLocation(300, 200);
+    f.pack();
+    f.setLocation(
+        (this.getDesktopPane().getWidth() - f.getWidth()) / 2,
+        (this.getDesktopPane().getHeight() - f.getHeight()) / 2
+    );
     this.getDesktopPane().add(f);
     f.setVisible(true);
     this.dispose();
