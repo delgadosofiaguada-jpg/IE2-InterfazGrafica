@@ -52,7 +52,14 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         Alertas.setBackground(new java.awt.Color(46, 80, 140));
         Alertas.setForeground(java.awt.Color.WHITE);
         actualizarTabla();
- 
+        TablaMaterias.getColumnModel().getColumn(0).setPreferredWidth(120); // Nombre
+        TablaMaterias.getColumnModel().getColumn(1).setPreferredWidth(60);  // Codigo
+        TablaMaterias.getColumnModel().getColumn(2).setPreferredWidth(80);  // Cuatrimestre
+        TablaMaterias.getColumnModel().getColumn(3).setPreferredWidth(50);  // Año
+        TablaMaterias.getColumnModel().getColumn(4).setPreferredWidth(70);  // Condicion
+        TablaMaterias.getColumnModel().getColumn(5).setPreferredWidth(80);  // Asistencia
+        TablaMaterias.getColumnModel().getColumn(6).setPreferredWidth(70);  // Promedio
+        TablaMaterias.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         getBtnBaja().addActionListener(e -> {
             int fila = getTablaMaterias().getSelectedRow();
             if (fila < 0) {
