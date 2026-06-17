@@ -19,8 +19,8 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
 
         // Fix: sacar la tabla del scroll doble
-        jScrollPane4.setViewportView(TablaMaterias);
-        jScrollPane1.setViewportView(null);
+        jScrollPane1.setViewportView(TablaMaterias);
+        jScrollPane4.setViewportView(jScrollPane1);
 
         // Colores de la tabla
         TablaMaterias.setBackground(new java.awt.Color(46, 80, 140));
@@ -43,7 +43,8 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         this.controlador = controlador;
         setBackground(new java.awt.Color(200, 216, 240));
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
-        jScrollPane4.setViewportView(TablaMaterias);
+        jScrollPane1.setViewportView(TablaMaterias);
+        jScrollPane4.setViewportView(jScrollPane1);
         TablaMaterias.setBackground(new java.awt.Color(46, 80, 140));
         TablaMaterias.setSelectionBackground(new java.awt.Color(107, 79, 163));
         TablaMaterias.getTableHeader().setBackground(new java.awt.Color(27, 58, 107));
