@@ -1,2 +1,1 @@
-Matematica|MAT|1|2024|4|3|
 Programacion|PROG|2|2024|4|3|

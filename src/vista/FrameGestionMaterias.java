@@ -52,42 +52,68 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         TablaMaterias.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         TablaMaterias.setBorder(null);
  
-        // CardLayout (cumple consigna)
+        
+        // CardLayout: navega entre vista tabla y vista búsqueda
         javax.swing.JPanel panelCards = new javax.swing.JPanel(new java.awt.CardLayout());
         panelCards.setOpaque(false);
+
+        javax.swing.JPanel cardTabla = new javax.swing.JPanel();
+        cardTabla.setOpaque(false);
+        javax.swing.JLabel lblTabla = new javax.swing.JLabel("Todas las materias");
+        lblTabla.setForeground(new java.awt.Color(107, 79, 163));
+        cardTabla.add(lblTabla);
+
+        javax.swing.JPanel cardBusqueda = new javax.swing.JPanel();
+        cardBusqueda.setOpaque(false);
+        javax.swing.JLabel lblBusqueda = new javax.swing.JLabel("Resultados de búsqueda");
+        lblBusqueda.setForeground(new java.awt.Color(107, 79, 163));
+        cardBusqueda.add(lblBusqueda);
+
+        panelCards.add(cardTabla, "TABLA");
+        panelCards.add(cardBusqueda, "BUSQUEDA");
         jPanel1.add(panelCards);
- 
+
+        final java.awt.CardLayout cl = (java.awt.CardLayout) panelCards.getLayout();
+        cl.show(panelCards, "TABLA");
+        // Mostrar carta activa en el título
+        jLabel2.setText("Gestión de Materias — Todas las materias");
         // Limpiar placeholder y conectar búsqueda
         txtBusqueda.setText("");
-        btnBuscar.addActionListener(e -> {
-            String termino = txtBusqueda.getText().trim();
-            javax.swing.table.DefaultTableModel m =
-                (javax.swing.table.DefaultTableModel) TablaMaterias.getModel();
-            if (termino.isEmpty()) {
-                actualizarTabla();
-                return;
-            }
-            m.setRowCount(0);
-            java.util.List<modelo.InscripcionMateria> resultados =
-                controlador.buscarMateriaBonus(termino);
-            for (modelo.InscripcionMateria i : resultados) {
-                m.addRow(new Object[]{
-                    i.getMateria().getNombre(),
-                    i.getMateria().getCodigo(),
-                    i.getMateria().getCuatrimestre(),
-                    i.getMateria().getAnio(),
-                    i.getCondicion(),
-                    String.format("%.1f%%", i.getPorcentajeAsistencia()),
-                    String.format("%.2f", i.getNota())
-                });
-            }
-            if (resultados.isEmpty()) {
-                javax.swing.JOptionPane.showMessageDialog(this,
-                    "No se encontraron materias con '" + termino + "'.",
-                    "Sin resultados", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                actualizarTabla();
-            }
-        });
+        
+            btnBuscar.addActionListener(e -> {
+        String termino = txtBusqueda.getText().trim();
+        javax.swing.table.DefaultTableModel m =
+            (javax.swing.table.DefaultTableModel) TablaMaterias.getModel();
+        if (termino.isEmpty()) {
+            cl.show(panelCards, "TABLA");
+            jLabel2.setText("Gestión de Materias — Todas las materias");
+            actualizarTabla();
+            return;
+        }
+        cl.show(panelCards, "BUSQUEDA");
+        jLabel2.setText("Gestión de Materias — Resultados de búsqueda");
+        java.util.List<modelo.InscripcionMateria> resultados =
+            controlador.buscarMateriaBonus(termino);
+        for (modelo.InscripcionMateria i : resultados) {
+            m.addRow(new Object[]{
+                i.getMateria().getNombre(),
+                i.getMateria().getCodigo(),
+                i.getMateria().getCuatrimestre(),
+                i.getMateria().getAnio(),
+                i.getCondicion(),
+                String.format("%.1f%%", i.getPorcentajeAsistencia()),
+                String.format("%.2f", i.getNota())
+            });
+        }
+        if (resultados.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "No se encontraron materias con '" + termino + "'.",
+                "Sin resultados", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            cl.show(panelCards, "TABLA");
+            jLabel2.setText("Gestión de Materias — Todas las materias");
+            actualizarTabla();
+        }
+    });
  
         // Dar de baja
         btnBaja.addActionListener(e -> {
