@@ -57,16 +57,15 @@ public class FramePerfil extends javax.swing.JInternalFrame {
 });
 }
 
-   private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
+private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
+    javax.swing.JDesktopPane desktop = this.getDesktopPane();
     frame.pack();
-    this.getDesktopPane().add(frame);
+    desktop.add(frame);
     frame.setVisible(true);
-    javax.swing.SwingUtilities.invokeLater(() -> {
-        frame.setLocation(
-            (this.getDesktopPane().getWidth() - frame.getWidth()) / 2,
-            (this.getDesktopPane().getHeight() - frame.getHeight()) / 2
-        );
-    });
+    frame.setLocation(
+        Math.max(0, (desktop.getWidth() - frame.getWidth()) / 2),
+        Math.max(0, (desktop.getHeight() - frame.getHeight()) / 2)
+    );
     this.dispose();
 }
 
@@ -257,7 +256,7 @@ public class FramePerfil extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -268,7 +267,7 @@ public class FramePerfil extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        pack();
+        setBounds(400, 200, 321, 419);
     }// </editor-fold>//GEN-END:initComponents
 
 

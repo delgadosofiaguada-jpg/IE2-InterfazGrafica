@@ -259,16 +259,16 @@ private void cargarComboMaterias() {
 }
 
 private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
+    javax.swing.JDesktopPane desktop = this.getDesktopPane();
     frame.pack();
-    this.getDesktopPane().add(frame);
+    desktop.add(frame);
     frame.setVisible(true);
-    javax.swing.SwingUtilities.invokeLater(() -> {
-        frame.setLocation(
-            (this.getDesktopPane().getWidth() - frame.getWidth()) / 2,
-            (this.getDesktopPane().getHeight() - frame.getHeight()) / 2
-        );
-    });
+    frame.setLocation(
+        Math.max(0, (desktop.getWidth() - frame.getWidth()) / 2),
+        Math.max(0, (desktop.getHeight() - frame.getHeight()) / 2)
+    );
     this.dispose();
+
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -11,16 +11,10 @@ public class Main {
             ventana.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
             ventana.setLocationRelativeTo(null);
             ventana.setVisible(true);
-
             FrameBienvenida bienvenida = new FrameBienvenida(controlador);
             ventana.getDesktop().add(bienvenida);
             bienvenida.pack();
-            javax.swing.SwingUtilities.invokeLater(() -> {
-            bienvenida.setLocation(
-                (ventana.getDesktop().getWidth() - bienvenida.getWidth()) / 2,
-                (ventana.getDesktop().getHeight() - bienvenida.getHeight()) / 2
-            );
-});
+            bienvenida.setLocation(800, 350);
             bienvenida.setVisible(true);
         });
     }

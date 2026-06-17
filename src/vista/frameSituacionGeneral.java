@@ -87,14 +87,12 @@ public class frameSituacionGeneral extends javax.swing.JInternalFrame {
 
      private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
     frame.pack();
+    frame.setLocation(
+        (this.getDesktopPane().getWidth() - frame.getWidth()) / 2,
+        (this.getDesktopPane().getHeight() - frame.getHeight()) / 2
+    );
     this.getDesktopPane().add(frame);
     frame.setVisible(true);
-    javax.swing.SwingUtilities.invokeLater(() -> {
-        frame.setLocation(
-            (this.getDesktopPane().getWidth() - frame.getWidth()) / 2,
-            (this.getDesktopPane().getHeight() - frame.getHeight()) / 2
-        );
-    });
     this.dispose();
 }
 
