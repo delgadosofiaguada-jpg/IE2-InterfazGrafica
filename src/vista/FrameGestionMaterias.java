@@ -61,6 +61,7 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         TablaMaterias.getColumnModel().getColumn(5).setPreferredWidth(80);  // Asistencia
         TablaMaterias.getColumnModel().getColumn(6).setPreferredWidth(70);  // Promedio
         TablaMaterias.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        TablaMaterias.setBorder(null);
         getBtnBaja().addActionListener(e -> {
             int fila = getTablaMaterias().getSelectedRow();
             if (fila < 0) {
