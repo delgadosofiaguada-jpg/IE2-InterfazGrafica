@@ -122,6 +122,11 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         getAlertas().setModel(modeloLista);
         getTablaMaterias().revalidate();
         getTablaMaterias().repaint();
+        if (modelo.getRowCount() == 0) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+            "No hay materias inscriptas aún.",
+            "Sin materias", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+}
     }
  
     private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
