@@ -87,11 +87,13 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         if (termino.isEmpty()) {
             cl.show(panelCards, "TABLA");
             jLabel2.setText("Gestión de Materias — Todas las materias");
+            
             actualizarTabla();
             return;
         }
         cl.show(panelCards, "BUSQUEDA");
         jLabel2.setText("Gestión de Materias — Resultados de búsqueda");
+        m.setRowCount(0); // ← AGREGAR ESTA LÍNEA
         java.util.List<modelo.InscripcionMateria> resultados =
             controlador.buscarMateriaBonus(termino);
         for (modelo.InscripcionMateria i : resultados) {

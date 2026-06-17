@@ -1,1 +1,2 @@
-Programacion|PROG|2|2024|4|3|
+Programacion|PROG|2|2024|6|4|10.0,7.0,8.0,9.0,10.0
+Matematica|MAT|1|2024|0|0|
