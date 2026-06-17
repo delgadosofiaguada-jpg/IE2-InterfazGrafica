@@ -72,6 +72,7 @@ public class frameSituacionGeneral extends javax.swing.JInternalFrame {
          ItemMatRiesgo.addActionListener(e -> abrirFrame(new FrameMateriasEnRiesgo(controlador), 550, 400, 150, 80));
          ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
          ItemSalir.addActionListener(e -> System.exit(0));
+         ItemSitGen.addActionListener(e -> abrirFrame(new frameSituacionGeneral(controlador), 750, 500, 100, 50));
            btnVolver.addActionListener(e -> {
     FrameBienvenida f = new FrameBienvenida(controlador);
     f.pack();

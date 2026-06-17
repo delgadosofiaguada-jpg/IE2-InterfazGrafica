@@ -217,6 +217,6 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
-    public javax.swing.JList<String> listaRiesgo;
+    
 }
 

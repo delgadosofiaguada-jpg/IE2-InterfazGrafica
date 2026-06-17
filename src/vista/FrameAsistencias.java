@@ -67,6 +67,7 @@ public FrameAsistencias(controlador.Controlador controlador) {
     ItemMatRiesgo.addActionListener(e -> abrirFrame(new FrameMateriasEnRiesgo(controlador), 550, 400, 150, 80));
     ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
     ItemSalir.addActionListener(e -> System.exit(0));
+    ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
     btnVolver.addActionListener(e -> {
     FrameBienvenida f = new FrameBienvenida(controlador);
     f.pack();
