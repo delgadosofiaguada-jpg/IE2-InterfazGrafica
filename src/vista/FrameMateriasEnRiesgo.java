@@ -19,16 +19,7 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
         // Reemplazar MateriaRiesgo (JLabel) por un JList real
         // Crear JList programáticamente (reemplaza el JLabel MateriaRiesgo)
-        listaRiesgo = new javax.swing.JList<>();
-        listaRiesgo.setBackground(new java.awt.Color(46, 80, 140));
-        listaRiesgo.setForeground(java.awt.Color.WHITE);
-        listaRiesgo.setFont(new java.awt.Font("Segoe UI", 0, 13));
-        javax.swing.JScrollPane scrollRiesgo = new javax.swing.JScrollPane(listaRiesgo);
-        scrollRiesgo.setBorder(javax.swing.BorderFactory.createTitledBorder(
-            "Materias en riesgo (75%-85%)"));
-        scrollRiesgo.setBounds(MateriaRiesgo.getBounds()); // ocupa el mismo lugar
-        getContentPane().add(scrollRiesgo);
-        MateriaRiesgo.setVisible(false); // ocultar el label viejo
+        
 
     }
     private controlador.Controlador controlador;
@@ -38,24 +29,18 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
         this.controlador = controlador;
         setBackground(new java.awt.Color(200, 216, 240));
         getContentPane().setBackground(new java.awt.Color(200, 216, 240));
-        listaRiesgo = new javax.swing.JList<>();
-        listaRiesgo.setBackground(new java.awt.Color(46, 80, 140));
-        listaRiesgo.setForeground(java.awt.Color.WHITE);
-        listaRiesgo.setFont(new java.awt.Font("Segoe UI", 0, 13));
-        javax.swing.JScrollPane scrollRiesgo = new javax.swing.JScrollPane(listaRiesgo);
-        scrollRiesgo.setBorder(javax.swing.BorderFactory.createTitledBorder("Materias en riesgo (75%-85%)"));
-        scrollRiesgo.setBounds(MateriaRiesgo.getBounds());
-        getContentPane().add(scrollRiesgo);
-        MateriaRiesgo.setVisible(false);
 
         javax.swing.DefaultListModel<String> modeloLista = new javax.swing.DefaultListModel<>();
         for (modelo.InscripcionMateria i : controlador.getEstudiante().getMateriasCriticasOrdenadas())
             modeloLista.addElement(i.getMateria().getNombre()
                 + "  —  " + String.format("%.1f%%", i.getPorcentajeAsistencia()));
-        listaRiesgo.setModel(modeloLista);
-        if (modeloLista.isEmpty()) {
-        modeloLista.addElement("— Ninguna materia en riesgo (75%-85%) —");
-        }
+        if (modeloLista.isEmpty())
+            modeloLista.addElement("— Ninguna materia en riesgo (75%-85%) —");
+        StringBuilder sb = new StringBuilder("<html>");
+        for (int i = 0; i < modeloLista.size(); i++)
+            sb.append(modeloLista.getElementAt(i)).append("<br>");
+        sb.append("</html>");
+        MateriaRiesgo.setText(sb.toString());
         ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
         ItemGestionM.addActionListener(e -> abrirFrame(new FrameGestionMaterias(controlador), 900, 550, 50, 30));
         ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
@@ -64,19 +49,20 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
         ItemMatAprobadas.addActionListener(e -> abrirFrame(new FrameMateriasAprobadas(controlador), 550, 400, 150, 80));
         ItemSalir.addActionListener(e -> System.exit(0));
         btnVolver.addActionListener(e -> {
-        FrameBienvenida f = new FrameBienvenida(controlador);
-        f.setSize(500, 300);
-        f.setLocation(300, 200);
-        this.getDesktopPane().add(f);
-        f.setVisible(true);
-        this.dispose();
+            FrameBienvenida f = new FrameBienvenida(controlador);
+            f.setSize(500, 300);
+            f.setLocation(300, 200);
+            this.getDesktopPane().add(f);
+            f.setVisible(true);
+            this.dispose();
 });
     }
 
     private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
-        frame.setSize(w, h); frame.setLocation(x, y);
+         frame.setSize(w, h); frame.setLocation(x, y);
         this.getDesktopPane().add(frame);
-        frame.setVisible(true); this.dispose();
+        frame.setVisible(true);
+        this.dispose(); 
     }
     
     /**
