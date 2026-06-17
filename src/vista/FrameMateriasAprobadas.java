@@ -53,7 +53,7 @@ public class FrameMateriasAprobadas extends javax.swing.JInternalFrame {
     if (m.getRowCount() > 0) {
     double max = 0, min = 10, suma = 0;
     for (int i = 0; i < m.getRowCount(); i++) {
-        double nota = Double.parseDouble(m.getValueAt(i, 1).toString());
+        double nota = Double.parseDouble(m.getValueAt(i, 1).toString().replace(",", "."));
         if (nota > max) max = nota;
         if (nota < min) min = nota;
         suma += nota;
