@@ -126,12 +126,14 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
  
     private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
     frame.pack();
-    frame.setLocation(
-        (this.getDesktopPane().getWidth() - frame.getWidth()) / 2,
-        (this.getDesktopPane().getHeight() - frame.getHeight()) / 2
-    );
     this.getDesktopPane().add(frame);
     frame.setVisible(true);
+    javax.swing.SwingUtilities.invokeLater(() -> {
+        frame.setLocation(
+            (this.getDesktopPane().getWidth() - frame.getWidth()) / 2,
+            (this.getDesktopPane().getHeight() - frame.getHeight()) / 2
+        );
+    });
     this.dispose();
 }
  
@@ -215,11 +217,11 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
+                        .addGap(13, 13, 13)
                         .addComponent(btnBaja)
-                        .addGap(30, 30, 30)
+                        .addGap(27, 27, 27)
                         .addComponent(btnInscribirse)
-                        .addGap(55, 55, 55)
+                        .addGap(56, 56, 56)
                         .addComponent(btnVolver))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(189, 189, 189)
@@ -234,12 +236,12 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBaja)
                     .addComponent(btnInscribirse)
+                    .addComponent(btnBaja)
                     .addComponent(btnVolver))
-                .addContainerGap())
+                .addGap(14, 14, 14))
         );
 
         jMenuBar2.setBackground(new java.awt.Color(200, 216, 240));
@@ -290,7 +292,7 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

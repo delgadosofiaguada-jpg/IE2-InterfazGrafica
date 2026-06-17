@@ -15,7 +15,12 @@ public class Main {
             FrameBienvenida bienvenida = new FrameBienvenida(controlador);
             ventana.getDesktop().add(bienvenida);
             bienvenida.pack();
-            bienvenida.setLocation(300, 200);
+            javax.swing.SwingUtilities.invokeLater(() -> {
+            bienvenida.setLocation(
+                (ventana.getDesktop().getWidth() - bienvenida.getWidth()) / 2,
+                (ventana.getDesktop().getHeight() - bienvenida.getHeight()) / 2
+            );
+});
             bienvenida.setVisible(true);
         });
     }
