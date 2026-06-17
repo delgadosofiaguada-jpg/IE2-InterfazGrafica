@@ -52,6 +52,15 @@ public class frameSituacionGeneral extends javax.swing.JInternalFrame {
                  String.format("%.1f%%", i.getPorcentajeAsistencia()),
                  String.format("%.2f", i.getNota())
              });
+            
+             TablaMaterias.getColumnModel().getColumn(0).setPreferredWidth(120); // Nombre
+            TablaMaterias.getColumnModel().getColumn(1).setPreferredWidth(60);  // Codigo
+            TablaMaterias.getColumnModel().getColumn(2).setPreferredWidth(80);  // Cuatrimestre
+            TablaMaterias.getColumnModel().getColumn(3).setPreferredWidth(50);  // Año
+            TablaMaterias.getColumnModel().getColumn(4).setPreferredWidth(70);  // Condicion
+            TablaMaterias.getColumnModel().getColumn(5).setPreferredWidth(80);  // Asistencia
+            TablaMaterias.getColumnModel().getColumn(6).setPreferredWidth(70);  // Promedio
+            TablaMaterias.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
          }
 
          ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
