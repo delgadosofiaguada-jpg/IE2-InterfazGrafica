@@ -49,10 +49,7 @@ public class FrameMateriasAprobadas extends javax.swing.JInternalFrame {
     }
     jTable1.revalidate();
     jTable1.repaint();
-    javax.swing.JLabel lblEstadisticas = new javax.swing.JLabel();
-    lblEstadisticas.setFont(new java.awt.Font("Segoe UI", 0, 13));
-    lblEstadisticas.setForeground(new java.awt.Color(107, 79, 163));
-    getContentPane().add(lblEstadisticas);
+    
     if (m.getRowCount() > 0) {
     double max = 0, min = 10, suma = 0;
     for (int i = 0; i < m.getRowCount(); i++) {
@@ -107,6 +104,7 @@ public class FrameMateriasAprobadas extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         btnVolver = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        lblEstadisticas = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu10 = new javax.swing.JMenu();
         ItemPerfil = new javax.swing.JMenuItem();
@@ -186,12 +184,16 @@ public class FrameMateriasAprobadas extends javax.swing.JInternalFrame {
                         .addGap(71, 71, 71)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(btnVolver))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(210, 210, 210)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(244, 244, 244)
+                        .addComponent(btnVolver)))
                 .addContainerGap(81, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblEstadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(148, 148, 148))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,9 +202,11 @@ public class FrameMateriasAprobadas extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblEstadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(btnVolver)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         pack();
@@ -225,5 +229,6 @@ public class FrameMateriasAprobadas extends javax.swing.JInternalFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblEstadisticas;
     // End of variables declaration//GEN-END:variables
 }
