@@ -62,6 +62,7 @@ public class frameSituacionGeneral extends javax.swing.JInternalFrame {
             TablaMaterias.getColumnModel().getColumn(5).setPreferredWidth(80);  // Asistencia
             TablaMaterias.getColumnModel().getColumn(6).setPreferredWidth(70);  // Promedio
             TablaMaterias.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+            TablaMaterias.setBorder(null);
          }
 
          ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
