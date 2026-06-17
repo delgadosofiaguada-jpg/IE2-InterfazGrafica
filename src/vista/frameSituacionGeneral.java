@@ -38,7 +38,8 @@ public class frameSituacionGeneral extends javax.swing.JInternalFrame {
          TablaMaterias.getTableHeader().setBackground(new java.awt.Color(27, 58, 107));
          TablaMaterias.getTableHeader().setForeground(java.awt.Color.WHITE);
 
-         getNombreAlumno().setText(controlador.getEstudiante().getNombre());
+         getNombreAlumno().setText(controlador.getEstudiante().getNombre()
+    + " | " + controlador.getEstudiante().getCarrera());
          getPromedioGeneral().setText(String.format("%.2f", controlador.getEstudiante().getPromedioGeneral()));
 
          javax.swing.table.DefaultTableModel m =
