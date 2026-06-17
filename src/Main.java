@@ -8,7 +8,7 @@ public class Main {
         SwingUtilities.invokeLater(() -> {
             Controlador controlador = new Controlador();
             VistaPrincipalFrame ventana = new VistaPrincipalFrame();
-            ventana.setSize(1100, 750);
+            ventana.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
             ventana.setLocationRelativeTo(null);
             ventana.setVisible(true);
 
