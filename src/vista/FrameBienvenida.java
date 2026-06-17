@@ -25,6 +25,7 @@ public FrameBienvenida(controlador.Controlador controlador) {
     this.controlador = controlador;
     setBackground(new java.awt.Color(200, 216, 240));
     getContentPane().setBackground(new java.awt.Color(200, 216, 240));
+    jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 20));
     btnIngresar.addActionListener(e -> {
     abrirFrame(new FramePerfil(controlador), 0, 0, 0, 0);
 });
