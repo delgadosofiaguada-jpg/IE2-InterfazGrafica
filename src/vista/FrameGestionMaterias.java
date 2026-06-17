@@ -20,6 +20,7 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
 
         // Fix: sacar la tabla del scroll doble
         jScrollPane4.setViewportView(TablaMaterias);
+        jScrollPane1.setViewportView(null);
 
         // Colores de la tabla
         TablaMaterias.setBackground(new java.awt.Color(46, 80, 140));
