@@ -49,6 +49,10 @@ public class FrameMateriasAprobadas extends javax.swing.JInternalFrame {
     }
     jTable1.revalidate();
     jTable1.repaint();
+    javax.swing.JLabel lblEstadisticas = new javax.swing.JLabel();
+    lblEstadisticas.setFont(new java.awt.Font("Segoe UI", 0, 13));
+    lblEstadisticas.setForeground(new java.awt.Color(107, 79, 163));
+    getContentPane().add(lblEstadisticas);
     if (m.getRowCount() > 0) {
     double max = 0, min = 10, suma = 0;
     for (int i = 0; i < m.getRowCount(); i++) {
@@ -57,10 +61,10 @@ public class FrameMateriasAprobadas extends javax.swing.JInternalFrame {
         if (nota < min) min = nota;
         suma += nota;
     }
-    jLabel2.setText("Máx: " + String.format("%.2f", max)
-        + "  Mín: " + String.format("%.2f", min)
-        + "  Prom: " + String.format("%.2f", suma / m.getRowCount())
-        + "  Total: " + m.getRowCount());
+    lblEstadisticas.setText("Máx: " + String.format("%.2f", max)
+    + "  Min: " + String.format("%.2f", min)
+    + "  Prom: " + String.format("%.2f", suma / m.getRowCount())
+    + "  Total: " + m.getRowCount());
 }
     if (m.getRowCount() == 0) {
         javax.swing.JOptionPane.showMessageDialog(this,
