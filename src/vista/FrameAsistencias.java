@@ -207,6 +207,7 @@ public FrameAsistencias(controlador.Controlador controlador) {
         );
 
         btnVolver.setText("Volver al Inicio");
+        btnVolver.addActionListener(this::btnVolverActionPerformed);
 
         btnResgistrar.setBackground(new java.awt.Color(107, 79, 163));
         btnResgistrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -277,6 +278,10 @@ public FrameAsistencias(controlador.Controlador controlador) {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
