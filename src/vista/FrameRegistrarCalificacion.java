@@ -213,8 +213,8 @@ public FrameRegistrarCalificacion(controlador.Controlador controlador) {
             controlador.registrarNota(codigo, nota);
             modelo.InscripcionMateria insc = controlador.buscarMateria(codigo);
             if (insc != null) {
-                NotasCargadasEN.setText("Notas: " + insc.getNotas().toString()
-                    + "  Promedio: " + String.format("%.2f", insc.getNota()));
+                NotasCargadasEN.setText(insc.getNotas().toString()
+                    + "  Prom: " + String.format("%.2f", insc.getNota()));
                 Nota.setText("");
             }
         } catch (IllegalStateException ex) {
