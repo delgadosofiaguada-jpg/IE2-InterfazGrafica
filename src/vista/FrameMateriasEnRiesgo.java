@@ -36,11 +36,7 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
                 + "  —  " + String.format("%.1f%%", i.getPorcentajeAsistencia()));
         if (modeloLista.isEmpty())
             modeloLista.addElement("— Ninguna materia en riesgo (75%-85%) —");
-        StringBuilder sb = new StringBuilder("<html>");
-        for (int i = 0; i < modeloLista.size(); i++)
-            sb.append(modeloLista.getElementAt(i)).append("<br>");
-        sb.append("</html>");
-        MateriaRiesgo.setText(sb.toString());
+        MateriaRiesgo.setModel(modeloLista);
         ItemPerfil.addActionListener(e -> abrirFrame(new FramePerfil(controlador), 550, 420, 100, 50));
         ItemGestionM.addActionListener(e -> abrirFrame(new FrameGestionMaterias(controlador), 900, 550, 50, 30));
         ItemAsistencia.addActionListener(e -> abrirFrame(new FrameAsistencias(controlador), 650, 400, 150, 80));
@@ -83,9 +79,10 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        MateriaRiesgo = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        MateriaRiesgo = new javax.swing.JList<>();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu10 = new javax.swing.JMenu();
         ItemPerfil = new javax.swing.JMenuItem();
@@ -101,9 +98,6 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Asistencias entre el 75% y 85%");
 
-        MateriaRiesgo.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        MateriaRiesgo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
         btnVolver.setBackground(new java.awt.Color(107, 79, 163));
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver al inicio ");
@@ -112,23 +106,28 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(107, 79, 163));
         jLabel3.setText("Materias en Riesgo");
 
+        MateriaRiesgo.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(MateriaRiesgo);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(MateriaRiesgo, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(btnVolver)))
-                        .addContainerGap(3, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3)))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(btnVolver))
+                .addGap(26, 26, 26))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,9 +136,9 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addGap(30, 30, 30)
                 .addComponent(jLabel2)
-                .addGap(27, 27, 27)
-                .addComponent(MateriaRiesgo, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane2)
+                .addGap(12, 12, 12)
                 .addComponent(btnVolver)
                 .addContainerGap())
         );
@@ -184,9 +183,10 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +206,7 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
     private javax.swing.JMenuItem ItemPerfil;
     private javax.swing.JMenuItem ItemSalir;
     private javax.swing.JMenuItem ItemSitGeneral;
-    private javax.swing.JLabel MateriaRiesgo;
+    private javax.swing.JList<String> MateriaRiesgo;
     private javax.swing.JMenu Reportes;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel2;
@@ -214,6 +214,8 @@ public class FrameMateriasEnRiesgo extends javax.swing.JInternalFrame {
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
     public javax.swing.JList<String> listaRiesgo;
 }

@@ -62,6 +62,65 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         TablaMaterias.getColumnModel().getColumn(6).setPreferredWidth(70);  // Promedio
         TablaMaterias.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         TablaMaterias.setBorder(null);
+        
+        // Limpiar placeholder del Designer
+        txtBusqueda.setText("");
+
+        // Conectar búsqueda a los componentes que ya existen en el form
+        btnBuscar.addActionListener(e -> {
+            String termino = txtBusqueda.getText().trim();
+            javax.swing.table.DefaultTableModel m =
+                (javax.swing.table.DefaultTableModel) TablaMaterias.getModel();
+            if (termino.isEmpty()) {
+                actualizarTabla();
+                return;
+            }
+            m.setRowCount(0);
+            java.util.List<modelo.InscripcionMateria> resultados =
+                controlador.buscarMateriaBonus(termino);
+            for (modelo.InscripcionMateria i : resultados) {
+                m.addRow(new Object[]{
+                    i.getMateria().getNombre(),
+                    i.getMateria().getCodigo(),
+                    i.getMateria().getCuatrimestre(),
+                    i.getMateria().getAnio(),
+                    i.getCondicion(),
+                    String.format("%.1f%%", i.getPorcentajeAsistencia()),
+                    String.format("%.2f", i.getNota())
+                });
+            }
+            if (resultados.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                    "No se encontraron materias con '" + termino + "'.",
+                    "Sin resultados", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                actualizarTabla();
+            }
+        });
+        // CardLayout sobre el panel de búsqueda (cumple consigna)
+        javax.swing.JPanel panelCards = new javax.swing.JPanel(new java.awt.CardLayout());
+        panelCards.setOpaque(false);
+        jPanel1.add(panelCards);
+        
+        
+        
+        btnBuscar.addActionListener(e -> {
+            String termino = txtBusqueda.getText().trim();
+            javax.swing.table.DefaultTableModel m =
+                (javax.swing.table.DefaultTableModel) getTablaMaterias().getModel();
+            if (termino.isEmpty()) { actualizarTabla(); return; }
+            m.setRowCount(0);
+            for (modelo.InscripcionMateria i : controlador.buscarMateriaBonus(termino))
+                m.addRow(new Object[]{
+                    i.getMateria().getNombre(), i.getMateria().getCodigo(),
+                    i.getMateria().getCuatrimestre(), i.getMateria().getAnio(),
+                    i.getCondicion(),
+                    String.format("%.1f%%", i.getPorcentajeAsistencia()),
+                    String.format("%.2f", i.getNota())
+                });
+        });
+
+        
+        
         getBtnBaja().addActionListener(e -> {
             int fila = getTablaMaterias().getSelectedRow();
             if (fila < 0) {
@@ -161,6 +220,8 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaMaterias = new javax.swing.JTable();
+        txtBusqueda = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu10 = new javax.swing.JMenu();
         ItemPerfil = new javax.swing.JMenuItem();
@@ -212,6 +273,11 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
 
         jScrollPane4.setViewportView(jScrollPane1);
 
+        txtBusqueda.setText("jTextField1");
+        txtBusqueda.addActionListener(this::txtBusquedaActionPerformed);
+
+        btnBuscar.setText("Buscar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -220,16 +286,22 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(btnBaja)
-                        .addGap(27, 27, 27)
-                        .addComponent(btnInscribirse)
-                        .addGap(56, 56, 56)
-                        .addComponent(btnVolver))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(189, 189, 189)
                         .addComponent(jLabel2))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(btnBuscar))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnBaja)
+                                .addGap(27, 27, 27)
+                                .addComponent(btnInscribirse)
+                                .addGap(56, 56, 56)
+                                .addComponent(btnVolver)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -244,7 +316,11 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
                     .addComponent(btnInscribirse)
                     .addComponent(btnBaja)
                     .addComponent(btnVolver))
-                .addGap(14, 14, 14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jMenuBar2.setBackground(new java.awt.Color(200, 216, 240));
@@ -295,8 +371,8 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -306,6 +382,10 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void txtBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusquedaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -321,6 +401,7 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JMenu Reportes;
     private javax.swing.JTable TablaMaterias;
     private javax.swing.JButton btnBaja;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnInscribirse;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel2;
@@ -330,6 +411,7 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextField txtBusqueda;
     // End of variables declaration//GEN-END:variables
 public javax.swing.JTable getTablaMaterias() { return TablaMaterias; }
 public javax.swing.JList<String> getAlertas() { return Alertas; }
