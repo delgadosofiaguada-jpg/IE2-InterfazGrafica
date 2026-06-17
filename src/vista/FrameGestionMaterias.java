@@ -148,13 +148,14 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         Alertas = new javax.swing.JList<>();
+        jPanel1 = new javax.swing.JPanel();
+        btnBaja = new javax.swing.JButton();
+        btnInscribirse = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaMaterias = new javax.swing.JTable();
-        btnBaja = new javax.swing.JButton();
-        btnVolver = new javax.swing.JButton();
-        btnInscribirse = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu10 = new javax.swing.JMenu();
         ItemPerfil = new javax.swing.JMenuItem();
@@ -176,6 +177,21 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(200, 216, 240));
 
+        btnBaja.setBackground(new java.awt.Color(107, 79, 163));
+        btnBaja.setForeground(new java.awt.Color(255, 255, 255));
+        btnBaja.setText("Dar De Baja");
+
+        btnInscribirse.setBackground(new java.awt.Color(107, 79, 163));
+        btnInscribirse.setForeground(new java.awt.Color(255, 255, 255));
+        btnInscribirse.setText("Inscribirse a la Materia");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(107, 79, 163));
+        jLabel2.setText("Gestion de Materias");
+
+        btnVolver.setText("Volver al Inicio");
+        btnVolver.addActionListener(this::btnVolverActionPerformed);
+
         TablaMaterias.setBorder(javax.swing.BorderFactory.createTitledBorder("Materias Inscriptas"));
         TablaMaterias.setForeground(new java.awt.Color(255, 255, 255));
         TablaMaterias.setModel(new javax.swing.table.DefaultTableModel(
@@ -191,19 +207,40 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
 
         jScrollPane4.setViewportView(jScrollPane1);
 
-        btnBaja.setBackground(new java.awt.Color(107, 79, 163));
-        btnBaja.setForeground(new java.awt.Color(255, 255, 255));
-        btnBaja.setText("Dar De Baja");
-
-        btnVolver.setText("Volver al Inicio");
-
-        btnInscribirse.setBackground(new java.awt.Color(107, 79, 163));
-        btnInscribirse.setForeground(new java.awt.Color(255, 255, 255));
-        btnInscribirse.setText("Inscribirse a la Materia");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(107, 79, 163));
-        jLabel2.setText("Gestion de Materias");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(btnBaja)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnInscribirse)
+                        .addGap(55, 55, 55)
+                        .addComponent(btnVolver))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(189, 189, 189)
+                        .addComponent(jLabel2))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBaja)
+                    .addComponent(btnInscribirse)
+                    .addComponent(btnVolver))
+                .addContainerGap())
+        );
 
         jMenuBar2.setBackground(new java.awt.Color(200, 216, 240));
 
@@ -245,42 +282,25 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(btnBaja)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnInscribirse))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(btnVolver))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(314, 314, 314)
-                        .addComponent(jLabel2)))
-                .addContainerGap(63, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBaja)
-                    .addComponent(btnInscribirse))
-                .addGap(41, 41, 41)
-                .addComponent(btnVolver)
-                .addContainerGap(58, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -301,6 +321,7 @@ public class FrameGestionMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
