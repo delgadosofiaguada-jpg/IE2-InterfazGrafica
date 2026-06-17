@@ -14,7 +14,7 @@ public class Main {
 
             FrameBienvenida bienvenida = new FrameBienvenida(controlador);
             ventana.getDesktop().add(bienvenida);
-            bienvenida.setSize(500, 300);
+            bienvenida.pack();
             bienvenida.setLocation(300, 200);
             bienvenida.setVisible(true);
         });

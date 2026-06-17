@@ -78,11 +78,17 @@ public FrameAsistencias(controlador.Controlador controlador) {
                 + " (" + i.getMateria().getCodigo() + ")");
     }
 
-    private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
-        frame.setSize(w, h); frame.setLocation(x, y);
-        this.getDesktopPane().add(frame);
-        frame.setVisible(true); this.dispose();
+   private void abrirFrame(javax.swing.JInternalFrame frame, int w, int h, int x, int y) {
+    frame.pack();
+    frame.setLocation(
+        (this.getDesktopPane().getWidth() - frame.getWidth()) / 2,
+        (this.getDesktopPane().getHeight() - frame.getHeight()) / 2
+    );
+    this.getDesktopPane().add(frame);
+    frame.setVisible(true);
+    this.dispose();
 }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
