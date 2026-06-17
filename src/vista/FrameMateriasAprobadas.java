@@ -49,6 +49,19 @@ public class FrameMateriasAprobadas extends javax.swing.JInternalFrame {
     }
     jTable1.revalidate();
     jTable1.repaint();
+    if (m.getRowCount() > 0) {
+    double max = 0, min = 10, suma = 0;
+    for (int i = 0; i < m.getRowCount(); i++) {
+        double nota = Double.parseDouble(m.getValueAt(i, 1).toString());
+        if (nota > max) max = nota;
+        if (nota < min) min = nota;
+        suma += nota;
+    }
+    jLabel2.setText("Máx: " + String.format("%.2f", max)
+        + "  Mín: " + String.format("%.2f", min)
+        + "  Prom: " + String.format("%.2f", suma / m.getRowCount())
+        + "  Total: " + m.getRowCount());
+}
     if (m.getRowCount() == 0) {
         javax.swing.JOptionPane.showMessageDialog(this,
             "No hay materias aprobadas aún.\n(Se requiere condición Regular y nota ≥ 6)",
